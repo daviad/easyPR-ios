@@ -8,13 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		B93FB9E8210EE5FE00DC1E4D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B93FB9E7210EE5FE00DC1E4D /* AppDelegate.m */; };
-		B93FB9EB210EE5FE00DC1E4D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B93FB9EA210EE5FE00DC1E4D /* ViewController.m */; };
+		B93FB9EB210EE5FE00DC1E4D /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = B93FB9EA210EE5FE00DC1E4D /* ViewController.mm */; };
 		B93FB9EE210EE5FE00DC1E4D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B93FB9EC210EE5FE00DC1E4D /* Main.storyboard */; };
 		B93FB9F0210EE5FF00DC1E4D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B93FB9EF210EE5FF00DC1E4D /* Assets.xcassets */; };
 		B93FB9F3210EE5FF00DC1E4D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B93FB9F1210EE5FF00DC1E4D /* LaunchScreen.storyboard */; };
 		B93FB9F6210EE5FF00DC1E4D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B93FB9F5210EE5FF00DC1E4D /* main.m */; };
 		B93FBA00210EE5FF00DC1E4D /* EasyPRTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B93FB9FF210EE5FF00DC1E4D /* EasyPRTests.m */; };
 		B93FBA0B210EE63700DC1E4D /* log.md in Resources */ = {isa = PBXBuildFile; fileRef = B93FBA0A210EE63700DC1E4D /* log.md */; };
+		B93FBA0D210EEA1C00DC1E4D /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B93FBA0C210EEA1C00DC1E4D /* opencv2.framework */; };
+		B93FBA0E210EEA1C00DC1E4D /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B93FBA0C210EEA1C00DC1E4D /* opencv2.framework */; };
+		B947E6E12110138A007C8216 /* 1.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = B947E6E02110138A007C8216 /* 1.jpeg */; };
+		B947E6E4211013D1007C8216 /* UIImageCVMatConverter.mm in Sources */ = {isa = PBXBuildFile; fileRef = B947E6E2211013D1007C8216 /* UIImageCVMatConverter.mm */; };
+		B947E6E6211025D2007C8216 /* test.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B947E6E5211025D2007C8216 /* test.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,7 +37,7 @@
 		B93FB9E6210EE5FE00DC1E4D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B93FB9E7210EE5FE00DC1E4D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		B93FB9E9210EE5FE00DC1E4D /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		B93FB9EA210EE5FE00DC1E4D /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		B93FB9EA210EE5FE00DC1E4D /* ViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ViewController.mm; sourceTree = "<group>"; };
 		B93FB9ED210EE5FE00DC1E4D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B93FB9EF210EE5FF00DC1E4D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B93FB9F2210EE5FF00DC1E4D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -42,6 +47,11 @@
 		B93FB9FF210EE5FF00DC1E4D /* EasyPRTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EasyPRTests.m; sourceTree = "<group>"; };
 		B93FBA01210EE5FF00DC1E4D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B93FBA0A210EE63700DC1E4D /* log.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = log.md; sourceTree = "<group>"; };
+		B93FBA0C210EEA1C00DC1E4D /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
+		B947E6E02110138A007C8216 /* 1.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpeg; sourceTree = "<group>"; };
+		B947E6E2211013D1007C8216 /* UIImageCVMatConverter.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = UIImageCVMatConverter.mm; sourceTree = "<group>"; };
+		B947E6E3211013D1007C8216 /* UIImageCVMatConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIImageCVMatConverter.h; sourceTree = "<group>"; };
+		B947E6E5211025D2007C8216 /* test.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = test.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B93FBA0D210EEA1C00DC1E4D /* opencv2.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,6 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B93FBA0E210EEA1C00DC1E4D /* opencv2.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,10 +95,15 @@
 		B93FB9E5210EE5FE00DC1E4D /* EasyPR */ = {
 			isa = PBXGroup;
 			children = (
+				B947E6E3211013D1007C8216 /* UIImageCVMatConverter.h */,
+				B947E6E2211013D1007C8216 /* UIImageCVMatConverter.mm */,
+				B947E6E5211025D2007C8216 /* test.jpg */,
+				B947E6E02110138A007C8216 /* 1.jpeg */,
+				B93FBA0C210EEA1C00DC1E4D /* opencv2.framework */,
 				B93FB9E6210EE5FE00DC1E4D /* AppDelegate.h */,
 				B93FB9E7210EE5FE00DC1E4D /* AppDelegate.m */,
 				B93FB9E9210EE5FE00DC1E4D /* ViewController.h */,
-				B93FB9EA210EE5FE00DC1E4D /* ViewController.m */,
+				B93FB9EA210EE5FE00DC1E4D /* ViewController.mm */,
 				B93FB9EC210EE5FE00DC1E4D /* Main.storyboard */,
 				B93FB9EF210EE5FF00DC1E4D /* Assets.xcassets */,
 				B93FB9F1210EE5FF00DC1E4D /* LaunchScreen.storyboard */,
@@ -186,6 +203,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B947E6E12110138A007C8216 /* 1.jpeg in Resources */,
+				B947E6E6211025D2007C8216 /* test.jpg in Resources */,
 				B93FB9F3210EE5FF00DC1E4D /* LaunchScreen.storyboard in Resources */,
 				B93FB9F0210EE5FF00DC1E4D /* Assets.xcassets in Resources */,
 				B93FB9EE210EE5FE00DC1E4D /* Main.storyboard in Resources */,
@@ -207,7 +226,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B93FB9EB210EE5FE00DC1E4D /* ViewController.m in Sources */,
+				B947E6E4211013D1007C8216 /* UIImageCVMatConverter.mm in Sources */,
+				B93FB9EB210EE5FE00DC1E4D /* ViewController.mm in Sources */,
 				B93FB9F6210EE5FF00DC1E4D /* main.m in Sources */,
 				B93FB9E8210EE5FE00DC1E4D /* AppDelegate.m in Sources */,
 			);
@@ -367,6 +387,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6D7J43H33A;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/EasyPR",
+				);
 				INFOPLIST_FILE = EasyPR/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -384,6 +408,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6D7J43H33A;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/EasyPR",
+				);
 				INFOPLIST_FILE = EasyPR/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -401,6 +429,10 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6D7J43H33A;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/EasyPR",
+				);
 				INFOPLIST_FILE = EasyPRTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -420,6 +452,10 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6D7J43H33A;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/EasyPR",
+				);
 				INFOPLIST_FILE = EasyPRTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
