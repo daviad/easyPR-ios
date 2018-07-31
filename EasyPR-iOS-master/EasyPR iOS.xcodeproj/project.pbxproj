@@ -59,7 +59,7 @@
 		53EBCD001A7B447A002F67C1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53EBCCFC1A7B447A002F67C1 /* CoreGraphics.framework */; };
 		B93FBA16210EEADA00DC1E4D /* EasyPR_iOSTests.mm in Sources */ = {isa = PBXBuildFile; fileRef = B93FBA15210EEADA00DC1E4D /* EasyPR_iOSTests.mm */; };
 		B93FBA1D210EEC1F00DC1E4D /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53BB0FED1B12B1E100A31F23 /* opencv2.framework */; };
-		B947E6EA2110350C007C8216 /* DebugController.m in Sources */ = {isa = PBXBuildFile; fileRef = B947E6E92110350C007C8216 /* DebugController.m */; };
+		B947E6EA2110350C007C8216 /* DebugController.mm in Sources */ = {isa = PBXBuildFile; fileRef = B947E6E92110350C007C8216 /* DebugController.mm */; };
 		B947E6ED21103741007C8216 /* DisplayCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B947E6EC21103741007C8216 /* DisplayCell.m */; };
 		B947E6F0211038A7007C8216 /* DisplayDesc.m in Sources */ = {isa = PBXBuildFile; fileRef = B947E6EF211038A7007C8216 /* DisplayDesc.m */; };
 		B947E6F32110397A007C8216 /* DisplayImg.m in Sources */ = {isa = PBXBuildFile; fileRef = B947E6F22110397A007C8216 /* DisplayImg.m */; };
@@ -146,7 +146,7 @@
 		B93FBA15210EEADA00DC1E4D /* EasyPR_iOSTests.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = EasyPR_iOSTests.mm; sourceTree = "<group>"; };
 		B93FBA17210EEADA00DC1E4D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B947E6E82110350C007C8216 /* DebugController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DebugController.h; sourceTree = "<group>"; };
-		B947E6E92110350C007C8216 /* DebugController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DebugController.m; sourceTree = "<group>"; };
+		B947E6E92110350C007C8216 /* DebugController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = DebugController.mm; sourceTree = "<group>"; };
 		B947E6EB21103741007C8216 /* DisplayCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DisplayCell.h; sourceTree = "<group>"; };
 		B947E6EC21103741007C8216 /* DisplayCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DisplayCell.m; sourceTree = "<group>"; };
 		B947E6EE211038A7007C8216 /* DisplayDesc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DisplayDesc.h; sourceTree = "<group>"; };
@@ -390,7 +390,7 @@
 			children = (
 				B947E6F721103DAE007C8216 /* configViews */,
 				B947E6E82110350C007C8216 /* DebugController.h */,
-				B947E6E92110350C007C8216 /* DebugController.m */,
+				B947E6E92110350C007C8216 /* DebugController.mm */,
 				B947E6EB21103741007C8216 /* DisplayCell.h */,
 				B947E6EC21103741007C8216 /* DisplayCell.m */,
 				B947E6EE211038A7007C8216 /* DisplayDesc.h */,
@@ -563,7 +563,7 @@
 				53224DA11D7BDECB00F92C8B /* VideoProcess.m in Sources */,
 				53804AB01D72D0F8007C2D7E /* params.cpp in Sources */,
 				53804AB41D72D0F8007C2D7E /* plate_locate.cpp in Sources */,
-				B947E6EA2110350C007C8216 /* DebugController.m in Sources */,
+				B947E6EA2110350C007C8216 /* DebugController.mm in Sources */,
 				B947E6F0211038A7007C8216 /* DisplayDesc.m in Sources */,
 				53224D801D7BBE0F00F92C8B /* erfilter.cpp in Sources */,
 				53804AB21D72D0F8007C2D7E /* plate_detect.cpp in Sources */,

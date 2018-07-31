@@ -9,5 +9,10 @@
 #import "DisplayDesc.h"
 
 @implementation DisplayDesc
-
+- (instancetype)init {
+    if (self = [super init]) {
+        self.layout = [[DisplayCellLayout alloc] init];
+    }
+    return self;
+}
 @end

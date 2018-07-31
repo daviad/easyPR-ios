@@ -32,6 +32,7 @@
         [self.contentView addSubview:_nextBtn];
         [_nextBtn setTitle:@"next" forState:UIControlStateNormal];
         [_nextBtn addTarget:self action:@selector(next) forControlEvents:UIControlEventTouchUpInside];
+        _nextBtn.backgroundColor = [UIColor redColor];
     }
     return self;
 }
@@ -49,21 +50,21 @@
     } else{
         _descLB.frame = CGRectMake(5, 2, data.layout.descSize.width, 0);
     }
-    int nextY = _descLB.frame.size.height;
+    int nextY = _descLB.frame.size.height + 8;
     
     if (data.img) {
         _imgView.image = data.img.img;
-        _imgView.frame = CGRectMake(5, CGRectGetMaxY(_descLB.frame), data.layout.imgSize.width, data.layout.imgSize.height);
+        _imgView.frame = CGRectMake(5, nextY, data.layout.imgSize.width, data.layout.imgSize.height);
+        nextY += _imgView.frame.size.height + 8;
     } else {
-        _imgView.frame = CGRectMake(5, CGRectGetMaxY(_descLB.frame), data.layout.imgSize.width, 0);
+        _imgView.frame = CGRectMake(5, nextY, data.layout.imgSize.width, 0);
     }
-    nextY += _imgView.frame.size.height;
    
     if (data.configView) {
         [_configView removeFromSuperview];
         _configView = data.configView;
-        _configView.frame = CGRectMake(5, CGRectGetMaxY(_descLB.frame), data.layout.configViewSize.width, data.layout.configViewSize.height);
-        nextY += _configView.frame.size.height;
+        _configView.frame = CGRectMake(5, nextY, data.layout.configViewSize.width, data.layout.configViewSize.height);
+        nextY += _configView.frame.size.height + 8;
     }
     
     if (data.hasNext) {
@@ -98,7 +99,7 @@
         h += 50;
     }
     
-    h += 50;
+    h += 30;
     return h;
 }
 @end
