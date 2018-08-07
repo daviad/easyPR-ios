@@ -29,7 +29,7 @@
 }
 
 - (void)tap {
-    [self.navigationController pushViewController:[[ContourTestController alloc] init] animated:YES];
+    [self.navigationController pushViewController:[[PlateRecognitionController alloc] init] animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {
