@@ -1,14 +1,14 @@
 //
-//  PlateRecognitionController.h
+//  MserLocateController.h
 //  EasyPR
 //
-//  Created by  dingxiuwei on 2018/8/7.
+//  Created by 丁秀伟 on 2018/8/8.
 //  Copyright © 2018年  dingxiuwei. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 #import "BaseController.h"
 
-@interface PlateRecognitionController : BaseController
+@interface MserLocateController : BaseController
 
 @end

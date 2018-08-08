@@ -15,11 +15,21 @@
 		B93FB9F6210EE5FF00DC1E4D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B93FB9F5210EE5FF00DC1E4D /* main.m */; };
 		B93FBA00210EE5FF00DC1E4D /* EasyPRTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B93FB9FF210EE5FF00DC1E4D /* EasyPRTests.m */; };
 		B93FBA0B210EE63700DC1E4D /* log.md in Resources */ = {isa = PBXBuildFile; fileRef = B93FBA0A210EE63700DC1E4D /* log.md */; };
-		B93FBA0D210EEA1C00DC1E4D /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B93FBA0C210EEA1C00DC1E4D /* opencv2.framework */; };
-		B93FBA0E210EEA1C00DC1E4D /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B93FBA0C210EEA1C00DC1E4D /* opencv2.framework */; };
 		B947E6E12110138A007C8216 /* 1.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = B947E6E02110138A007C8216 /* 1.jpeg */; };
 		B947E6E4211013D1007C8216 /* UIImageCVMatConverter.mm in Sources */ = {isa = PBXBuildFile; fileRef = B947E6E2211013D1007C8216 /* UIImageCVMatConverter.mm */; };
 		B947E6E6211025D2007C8216 /* test.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B947E6E5211025D2007C8216 /* test.jpg */; };
+		E42C978D211B2D1A00712339 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E42C977D211B2D1900712339 /* Assets.xcassets */; };
+		E42C978E211B2D1A00712339 /* LanelineController.m in Sources */ = {isa = PBXBuildFile; fileRef = E42C977E211B2D1900712339 /* LanelineController.m */; };
+		E42C978F211B2D1A00712339 /* test2.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = E42C9780211B2D1A00712339 /* test2.jpeg */; };
+		E42C9790211B2D1A00712339 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E42C9781211B2D1A00712339 /* opencv2.framework */; };
+		E42C9791211B2D1A00712339 /* ContourTestController.mm in Sources */ = {isa = PBXBuildFile; fileRef = E42C9782211B2D1A00712339 /* ContourTestController.mm */; };
+		E42C9792211B2D1A00712339 /* ShowController.m in Sources */ = {isa = PBXBuildFile; fileRef = E42C9783211B2D1A00712339 /* ShowController.m */; };
+		E42C9793211B2D1A00712339 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E42C9785211B2D1A00712339 /* LaunchScreen.storyboard */; };
+		E42C9794211B2D1A00712339 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E42C9787211B2D1A00712339 /* Main.storyboard */; };
+		E42C9795211B2D1A00712339 /* PlateRecognitionController.mm in Sources */ = {isa = PBXBuildFile; fileRef = E42C978A211B2D1A00712339 /* PlateRecognitionController.mm */; };
+		E42C9798211B329D00712339 /* ActionItem.m in Sources */ = {isa = PBXBuildFile; fileRef = E42C9797211B329D00712339 /* ActionItem.m */; };
+		E42C979C211B360600712339 /* BaseController.mm in Sources */ = {isa = PBXBuildFile; fileRef = E42C979B211B360600712339 /* BaseController.mm */; };
+		E42C979F211B396300712339 /* MserLocateController.mm in Sources */ = {isa = PBXBuildFile; fileRef = E42C979E211B396300712339 /* MserLocateController.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,11 +57,29 @@
 		B93FB9FF210EE5FF00DC1E4D /* EasyPRTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EasyPRTests.m; sourceTree = "<group>"; };
 		B93FBA01210EE5FF00DC1E4D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B93FBA0A210EE63700DC1E4D /* log.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = log.md; sourceTree = "<group>"; };
-		B93FBA0C210EEA1C00DC1E4D /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
 		B947E6E02110138A007C8216 /* 1.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpeg; sourceTree = "<group>"; };
 		B947E6E2211013D1007C8216 /* UIImageCVMatConverter.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = UIImageCVMatConverter.mm; sourceTree = "<group>"; };
 		B947E6E3211013D1007C8216 /* UIImageCVMatConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIImageCVMatConverter.h; sourceTree = "<group>"; };
 		B947E6E5211025D2007C8216 /* test.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = test.jpg; sourceTree = "<group>"; };
+		E42C977D211B2D1900712339 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E42C977E211B2D1900712339 /* LanelineController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LanelineController.m; sourceTree = "<group>"; };
+		E42C977F211B2D1900712339 /* ContourTestController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContourTestController.h; sourceTree = "<group>"; };
+		E42C9780211B2D1A00712339 /* test2.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = test2.jpeg; sourceTree = "<group>"; };
+		E42C9781211B2D1A00712339 /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
+		E42C9782211B2D1A00712339 /* ContourTestController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ContourTestController.mm; sourceTree = "<group>"; };
+		E42C9783211B2D1A00712339 /* ShowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowController.m; sourceTree = "<group>"; };
+		E42C9786211B2D1A00712339 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		E42C9788211B2D1A00712339 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Main.storyboard; sourceTree = "<group>"; };
+		E42C9789211B2D1A00712339 /* PlateRecognitionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlateRecognitionController.h; sourceTree = "<group>"; };
+		E42C978A211B2D1A00712339 /* PlateRecognitionController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PlateRecognitionController.mm; sourceTree = "<group>"; };
+		E42C978B211B2D1A00712339 /* LanelineController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LanelineController.h; sourceTree = "<group>"; };
+		E42C978C211B2D1A00712339 /* ShowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowController.h; sourceTree = "<group>"; };
+		E42C9796211B329D00712339 /* ActionItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ActionItem.h; sourceTree = "<group>"; };
+		E42C9797211B329D00712339 /* ActionItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ActionItem.m; sourceTree = "<group>"; };
+		E42C979A211B360600712339 /* BaseController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseController.h; sourceTree = "<group>"; };
+		E42C979B211B360600712339 /* BaseController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = BaseController.mm; sourceTree = "<group>"; };
+		E42C979D211B396300712339 /* MserLocateController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MserLocateController.h; sourceTree = "<group>"; };
+		E42C979E211B396300712339 /* MserLocateController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = MserLocateController.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,7 +87,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B93FBA0D210EEA1C00DC1E4D /* opencv2.framework in Frameworks */,
+				E42C9790211B2D1A00712339 /* opencv2.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -67,7 +95,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B93FBA0E210EEA1C00DC1E4D /* opencv2.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,11 +122,23 @@
 		B93FB9E5210EE5FE00DC1E4D /* EasyPR */ = {
 			isa = PBXGroup;
 			children = (
+				E42C9799211B350300712339 /* locate */,
+				E42C977D211B2D1900712339 /* Assets.xcassets */,
+				E42C9784211B2D1A00712339 /* Base.lproj */,
+				E42C977F211B2D1900712339 /* ContourTestController.h */,
+				E42C9782211B2D1A00712339 /* ContourTestController.mm */,
+				E42C978B211B2D1A00712339 /* LanelineController.h */,
+				E42C977E211B2D1900712339 /* LanelineController.m */,
+				E42C9781211B2D1A00712339 /* opencv2.framework */,
+				E42C9789211B2D1A00712339 /* PlateRecognitionController.h */,
+				E42C978A211B2D1A00712339 /* PlateRecognitionController.mm */,
+				E42C978C211B2D1A00712339 /* ShowController.h */,
+				E42C9783211B2D1A00712339 /* ShowController.m */,
+				E42C9780211B2D1A00712339 /* test2.jpeg */,
 				B947E6E3211013D1007C8216 /* UIImageCVMatConverter.h */,
 				B947E6E2211013D1007C8216 /* UIImageCVMatConverter.mm */,
 				B947E6E5211025D2007C8216 /* test.jpg */,
 				B947E6E02110138A007C8216 /* 1.jpeg */,
-				B93FBA0C210EEA1C00DC1E4D /* opencv2.framework */,
 				B93FB9E6210EE5FE00DC1E4D /* AppDelegate.h */,
 				B93FB9E7210EE5FE00DC1E4D /* AppDelegate.m */,
 				B93FB9E9210EE5FE00DC1E4D /* ViewController.h */,
@@ -110,6 +149,10 @@
 				B93FB9F4210EE5FF00DC1E4D /* Info.plist */,
 				B93FB9F5210EE5FF00DC1E4D /* main.m */,
 				B93FBA0A210EE63700DC1E4D /* log.md */,
+				E42C9796211B329D00712339 /* ActionItem.h */,
+				E42C9797211B329D00712339 /* ActionItem.m */,
+				E42C979A211B360600712339 /* BaseController.h */,
+				E42C979B211B360600712339 /* BaseController.mm */,
 			);
 			path = EasyPR;
 			sourceTree = "<group>";
@@ -121,6 +164,24 @@
 				B93FBA01210EE5FF00DC1E4D /* Info.plist */,
 			);
 			path = EasyPRTests;
+			sourceTree = "<group>";
+		};
+		E42C9784211B2D1A00712339 /* Base.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				E42C9785211B2D1A00712339 /* LaunchScreen.storyboard */,
+				E42C9787211B2D1A00712339 /* Main.storyboard */,
+			);
+			path = Base.lproj;
+			sourceTree = "<group>";
+		};
+		E42C9799211B350300712339 /* locate */ = {
+			isa = PBXGroup;
+			children = (
+				E42C979D211B396300712339 /* MserLocateController.h */,
+				E42C979E211B396300712339 /* MserLocateController.mm */,
+			);
+			path = locate;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -203,10 +264,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E42C9793211B2D1A00712339 /* LaunchScreen.storyboard in Resources */,
+				E42C9794211B2D1A00712339 /* Main.storyboard in Resources */,
+				E42C978F211B2D1A00712339 /* test2.jpeg in Resources */,
 				B947E6E12110138A007C8216 /* 1.jpeg in Resources */,
 				B947E6E6211025D2007C8216 /* test.jpg in Resources */,
 				B93FB9F3210EE5FF00DC1E4D /* LaunchScreen.storyboard in Resources */,
 				B93FB9F0210EE5FF00DC1E4D /* Assets.xcassets in Resources */,
+				E42C978D211B2D1A00712339 /* Assets.xcassets in Resources */,
 				B93FB9EE210EE5FE00DC1E4D /* Main.storyboard in Resources */,
 				B93FBA0B210EE63700DC1E4D /* log.md in Resources */,
 			);
@@ -226,10 +291,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E42C979F211B396300712339 /* MserLocateController.mm in Sources */,
+				E42C9795211B2D1A00712339 /* PlateRecognitionController.mm in Sources */,
 				B947E6E4211013D1007C8216 /* UIImageCVMatConverter.mm in Sources */,
 				B93FB9EB210EE5FE00DC1E4D /* ViewController.mm in Sources */,
+				E42C9791211B2D1A00712339 /* ContourTestController.mm in Sources */,
 				B93FB9F6210EE5FF00DC1E4D /* main.m in Sources */,
+				E42C9798211B329D00712339 /* ActionItem.m in Sources */,
+				E42C979C211B360600712339 /* BaseController.mm in Sources */,
+				E42C978E211B2D1A00712339 /* LanelineController.m in Sources */,
 				B93FB9E8210EE5FE00DC1E4D /* AppDelegate.m in Sources */,
+				E42C9792211B2D1A00712339 /* ShowController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -266,6 +338,22 @@
 				B93FB9F2210EE5FF00DC1E4D /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		E42C9785211B2D1A00712339 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E42C9786211B2D1A00712339 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		E42C9787211B2D1A00712339 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E42C9788211B2D1A00712339 /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

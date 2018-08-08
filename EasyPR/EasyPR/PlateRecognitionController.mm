@@ -9,76 +9,66 @@
 
 #import "PlateRecognitionController.h"
 #import "UIImageCVMatConverter.h"
-#import "ShowController.h"
 
 using namespace cv;
 using namespace std;
 
 @interface PlateRecognitionController ()
 {
-    NSMutableArray *imgs;
+
 }
 @end
 
 @implementation PlateRecognitionController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    ShowController *showCtr = [[ShowController alloc] init];
-    [self addChildViewController:showCtr];
-    [self.view addSubview:showCtr.view];
-    imgs = [NSMutableArray array];
-    
-    NSString *nsstring=[[NSBundle mainBundle] pathForResource:@"plate_judge" ofType:@"jpg"];
-//    nsstring=[[NSBundle mainBundle] pathForResource:@"test" ofType:@"jpg"];
-    nsstring=[[NSBundle mainBundle] pathForResource:@"test2" ofType:@"jpeg"];
-    
-    string image_path=[nsstring UTF8String];
-    Mat orginImg = imread(image_path, IMREAD_UNCHANGED);
-//    image = img.clone();
-    //img.copyTo(image);
-    
-    Mat resizedImg = orginImg;
-//    resize(orginImg, resizedImg, cv::Size(self.view.frame.size.width,self.view.frame.size.width / ratiowh));
-    Mat originRGB;
-    cvtColor(resizedImg, originRGB, CV_BGR2RGB);
-    [imgs addObject:[UIImageCVMatConverter UIImageFromCVMat:originRGB]];
-    
+- (void)handleImage:(cv::Mat)originRGB {
     // 候选车牌区域检测
     std::vector<cv::Rect> candidates;
-//    candidates = mserGetPlate(originRGB);
+    //    candidates = mserGetPlate(originRGB);
     [self mserGetPlate:originRGB];
     // 车牌区域显示
-//    for (int i = 0; i < candidates.size(); ++i)
-//    {
-//        [imgs addObject:[UIImageCVMatConverter UIImageFromCVMat:originRGB(candidates[i])]];
-//    }
+    //    for (int i = 0; i < candidates.size(); ++i)
+    //    {
+    //        [self.imgs addObject:[UIImageCVMatConverter UIImageFromCVMat:originRGB(candidates[i])]];
+    //    }
     
-    [showCtr loadImages:imgs];
-
+    //
+    
     return;
     
     
     Mat grayImg = colorMat(originRGB);
-    [imgs addObject:[UIImageCVMatConverter UIImageFromCVMat:grayImg]];
+    [self.imgs addObject:[UIImageCVMatConverter UIImageFromCVMat:grayImg]];
     
     Mat element = getStructuringElement(MORPH_RECT, cv::Size(17,8));
     Mat morphImag;
     morphologyEx(grayImg, morphImag, MORPH_CLOSE, element);
-    [imgs addObject:[UIImageCVMatConverter UIImageFromCVMat:morphImag]];
-
+    [self.imgs addObject:[UIImageCVMatConverter UIImageFromCVMat:morphImag]];
+    
     vector<vector<cv::Point>> contours;
     findContours(morphImag, contours,CV_RETR_EXTERNAL, CV_CHAIN_APPROX_NONE);
     drawContours(originRGB, contours, -1, Scalar(255, 0, 0));
-    [imgs addObject:[UIImageCVMatConverter UIImageFromCVMat:originRGB]];
-
+    [self.imgs addObject:[UIImageCVMatConverter UIImageFromCVMat:originRGB]];
+    
     vector<vector<cv::Point>>::iterator itc = contours.begin();
     while (itc != contours.end()) {
-//        RotatedRect mr = minAreaRect(Mat(*itc));
-       cv::Rect xx =  cv::boundingRect(Mat(*itc));
+        //        RotatedRect mr = minAreaRect(Mat(*itc));
+        cv::Rect xx =  cv::boundingRect(Mat(*itc));
         itc ++;
     }
+}
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view.
+
+    
+
+//    image = img.clone();
+    //img.copyTo(image);
+    
+
+    
+
     
 }
 
@@ -118,11 +108,11 @@ void colorReduce(Mat& image, int div)
 //    gray = channels[0];
     // 灰度转换
     cvtColor(srcImagge, gray, CV_RGB2GRAY);
-    [imgs addObject:[UIImageCVMatConverter UIImageFromCVMat:gray]];
+    [self.imgs addObject:[UIImageCVMatConverter UIImageFromCVMat:gray]];
 
     // 取反值灰度
     gray_neg = 255 - gray;
-    [imgs addObject:[UIImageCVMatConverter UIImageFromCVMat:gray_neg]];
+    [self.imgs addObject:[UIImageCVMatConverter UIImageFromCVMat:gray_neg]];
 
     vector<vector<cv::Point>> regContours;
     vector<vector<cv::Point>> charContours;
@@ -164,16 +154,16 @@ void colorReduce(Mat& image, int div)
     cv::Mat mserResMat;
     // mser+与mser-位与操作
     mserResMat = mserMapMat & mserNegMapMat;
-    [imgs addObject:[UIImageCVMatConverter UIImageFromCVMat:mserMapMat]];
-    [imgs addObject:[UIImageCVMatConverter UIImageFromCVMat:mserNegMapMat]];
-    [imgs addObject:[UIImageCVMatConverter UIImageFromCVMat:mserResMat]];
+    [self.imgs addObject:[UIImageCVMatConverter UIImageFromCVMat:mserMapMat]];
+    [self.imgs addObject:[UIImageCVMatConverter UIImageFromCVMat:mserNegMapMat]];
+    [self.imgs addObject:[UIImageCVMatConverter UIImageFromCVMat:mserResMat]];
     // 闭操作连接缝隙
     cv::Mat mserClosedMat;
     Mat element = getStructuringElement(MORPH_RECT, cv::Size(17,8));
     cv::morphologyEx(mserResMat, mserClosedMat,
                      cv::MORPH_CLOSE, element/*cv::Mat::ones(1, 20, CV_8UC1)*/);
 
-    [imgs addObject:[UIImageCVMatConverter UIImageFromCVMat:mserClosedMat]];
+    [self.imgs addObject:[UIImageCVMatConverter UIImageFromCVMat:mserClosedMat]];
 
     // 寻找外部轮廓
     std::vector<std::vector<cv::Point> > plate_contours;
@@ -191,12 +181,12 @@ void colorReduce(Mat& image, int div)
             candidates.push_back(rect);
     }
     drawContours(srcImagge, plate_contours, -1, Scalar(255, 0, 0));
-    [imgs addObject:[UIImageCVMatConverter UIImageFromCVMat:srcImagge]];
+    [self.imgs addObject:[UIImageCVMatConverter UIImageFromCVMat:srcImagge]];
     for (int i = 0; i < candidates.size(); ++i)
     {
         cv::rectangle(srcImagge, candidates[i], Scalar(0,255,0));
-        [imgs addObject:[UIImageCVMatConverter UIImageFromCVMat:srcImagge]];
-        [imgs addObject:[UIImageCVMatConverter UIImageFromCVMat:srcImagge(candidates[i])]];
+        [self.imgs addObject:[UIImageCVMatConverter UIImageFromCVMat:srcImagge]];
+        [self.imgs addObject:[UIImageCVMatConverter UIImageFromCVMat:srcImagge(candidates[i])]];
     }
     
 //    return  candidates;
