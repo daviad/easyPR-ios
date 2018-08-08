@@ -32,7 +32,7 @@ using namespace std;
     
     NSString *nsstring=[[NSBundle mainBundle] pathForResource:@"plate_judge" ofType:@"jpg"];
 //    nsstring=[[NSBundle mainBundle] pathForResource:@"test" ofType:@"jpg"];
-//    nsstring=[[NSBundle mainBundle] pathForResource:@"test2" ofType:@"jpeg"];
+    nsstring=[[NSBundle mainBundle] pathForResource:@"test2" ofType:@"jpeg"];
     
     string image_path=[nsstring UTF8String];
     Mat orginImg = imread(image_path, IMREAD_UNCHANGED);
@@ -47,12 +47,16 @@ using namespace std;
     
     // 候选车牌区域检测
     std::vector<cv::Rect> candidates;
-    candidates = mserGetPlate(originRGB);
+//    candidates = mserGetPlate(originRGB);
+    [self mserGetPlate:originRGB];
     // 车牌区域显示
-    for (int i = 0; i < candidates.size(); ++i)
-    {
-        [imgs addObject:[UIImageCVMatConverter UIImageFromCVMat:originRGB(candidates[i])]];
-    }
+//    for (int i = 0; i < candidates.size(); ++i)
+//    {
+//        [imgs addObject:[UIImageCVMatConverter UIImageFromCVMat:originRGB(candidates[i])]];
+//    }
+    
+    [showCtr loadImages:imgs];
+
     return;
     
     
@@ -76,7 +80,6 @@ using namespace std;
         itc ++;
     }
     
-    [showCtr loadImages:imgs];
 }
 
 
@@ -96,20 +99,31 @@ void colorReduce(Mat& image, int div)
     }
 }
 
-std::vector<cv::Rect>mserGetPlate(cv::Mat srcImagge) {
+- (void)mserPlateTest:(cv::Mat)srcImage {
+    Mat hsv;
+    cvtColor(srcImage, hsv, CV_RGB2HSV);
+    
+}
+
+- (void)mserGetPlate:(cv::Mat)srcImagge {
+//std::vector<cv::Rect>mserGetPlate(cv::Mat srcImagge) {
     // HSV空间转换
     Mat gray,gray_neg;
     Mat hsv;
     cvtColor(srcImagge, hsv, CV_RGB2HSV);
-    // 通道分离
-    vector<Mat> channels;
-    cv::split(hsv, channels);
-    // 提取h通道
-    gray = channels[1];
+//    // 通道分离
+//    vector<Mat> channels;
+//    cv::split(hsv, channels);
+//    // 提取h通道
+//    gray = channels[0];
     // 灰度转换
     cvtColor(srcImagge, gray, CV_RGB2GRAY);
+    [imgs addObject:[UIImageCVMatConverter UIImageFromCVMat:gray]];
+
     // 取反值灰度
-    gray_neg - gray;
+    gray_neg = 255 - gray;
+    [imgs addObject:[UIImageCVMatConverter UIImageFromCVMat:gray_neg]];
+
     vector<vector<cv::Point>> regContours;
     vector<vector<cv::Point>> charContours;
     // 创建MSER对象
@@ -150,11 +164,16 @@ std::vector<cv::Rect>mserGetPlate(cv::Mat srcImagge) {
     cv::Mat mserResMat;
     // mser+与mser-位与操作
     mserResMat = mserMapMat & mserNegMapMat;
-//    [imgs addObject:[UIImageCVMatConverter UIImageFromCVMat:mserMapMat]];
+    [imgs addObject:[UIImageCVMatConverter UIImageFromCVMat:mserMapMat]];
+    [imgs addObject:[UIImageCVMatConverter UIImageFromCVMat:mserNegMapMat]];
+    [imgs addObject:[UIImageCVMatConverter UIImageFromCVMat:mserResMat]];
     // 闭操作连接缝隙
     cv::Mat mserClosedMat;
+    Mat element = getStructuringElement(MORPH_RECT, cv::Size(17,8));
     cv::morphologyEx(mserResMat, mserClosedMat,
-                     cv::MORPH_CLOSE, cv::Mat::ones(1, 20, CV_8UC1));
+                     cv::MORPH_CLOSE, element/*cv::Mat::ones(1, 20, CV_8UC1)*/);
+
+    [imgs addObject:[UIImageCVMatConverter UIImageFromCVMat:mserClosedMat]];
 
     // 寻找外部轮廓
     std::vector<std::vector<cv::Point> > plate_contours;
@@ -171,7 +190,16 @@ std::vector<cv::Rect>mserGetPlate(cv::Mat srcImagge) {
         if (rect.height > 20 && wh_ratio > 4 && wh_ratio < 7)
             candidates.push_back(rect);
     }
-    return  candidates;
+    drawContours(srcImagge, plate_contours, -1, Scalar(255, 0, 0));
+    [imgs addObject:[UIImageCVMatConverter UIImageFromCVMat:srcImagge]];
+    for (int i = 0; i < candidates.size(); ++i)
+    {
+        cv::rectangle(srcImagge, candidates[i], Scalar(0,255,0));
+        [imgs addObject:[UIImageCVMatConverter UIImageFromCVMat:srcImagge]];
+        [imgs addObject:[UIImageCVMatConverter UIImageFromCVMat:srcImagge(candidates[i])]];
+    }
+    
+//    return  candidates;
 }
 
 Mat colorMat(const Mat& srcRGB) {

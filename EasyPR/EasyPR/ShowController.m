@@ -54,7 +54,12 @@
 - (void)loadImages:(NSMutableArray*)arr {
     [_dataArr removeAllObjects];
     for (UIImage *img in arr) {
-        [_dataArr addObject:[self scaleWithFixedWidth:self.view.bounds.size.width srcImage:img]];
+        if (img.size.width > self.view.bounds.size.width) {
+             [_dataArr addObject:[self scaleWithFixedWidth:self.view.bounds.size.width srcImage:img]];
+        }else {
+            [_dataArr addObject:img];
+        }
+       
     }
     [_showTB reloadData];
 }
