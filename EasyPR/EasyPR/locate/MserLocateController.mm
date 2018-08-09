@@ -13,12 +13,43 @@ using namespace cv;
 using namespace std;
 
 @implementation MserLocateController
+
+//图像剪切
+//参数：src为源图像， dst为结果图像, rect为剪切区域
+//返回值：返回0表示成功，否则返回错误代码
+int imageCrop(InputArray src, OutputArray dst, cv::Rect rect)
+{
+    Mat input = src.getMat();
+    if( input.empty() ) {
+        return -1;
+    }
+    
+    //计算剪切区域：  剪切Rect与源图像所在Rect的交集
+    cv::Rect srcRect(0, 0, input.cols, input.rows);
+    rect = rect & srcRect;
+    if ( rect.width <= 0  || rect.height <= 0 ) return -2;
+    
+    //创建结果图像
+    dst.create(cv::Size(rect.width, rect.height), src.type());
+    Mat output = dst.getMat();
+    if ( output.empty() ) return -1;
+    
+    try {
+        //复制源图像的剪切区域 到结果图像
+        input(rect).copyTo( output );
+        return 0;
+    } catch (...) {
+        return -3;
+    }
+}
+
 - (void)handleImage:(cv::Mat)srcImagge
 {
+    Mat rgbImage = srcImagge.clone();
     // HSV空间转换
     Mat gray,gray_neg;
     Mat hsv;
-    cvtColor(srcImagge, hsv, CV_RGB2HSV);
+//    cvtColor(srcImagge, hsv, CV_RGB2HSV);
     //    // 通道分离
     //    vector<Mat> channels;
     //    cv::split(hsv, channels);
@@ -91,20 +122,35 @@ using namespace std;
     for (size_t i = 0; i != plate_contours.size(); ++i)
     {
         // 求解最小外界矩形
+//        RotatedRect mr = minAreaRect(plate_contours[i]);
+//        mr.boundingRect();
         cv::Rect rect = cv::boundingRect(plate_contours[i]);
         // 宽高比例
         double wh_ratio = rect.width / double(rect.height);
         // 不符合尺寸条件判断
-        if (rect.height > 20 && wh_ratio > 4 && wh_ratio < 7)
+        if (rect.height > 20 && wh_ratio > 3 && wh_ratio < 7)
             candidates.push_back(rect);
+    
     }
     drawContours(srcImagge, plate_contours, -1, Scalar(255, 0, 0));
     [self.imgs addObject:[UIImageCVMatConverter UIImageFromCVMat:srcImagge]];
+    
     for (int i = 0; i < candidates.size(); ++i)
     {
         cv::rectangle(srcImagge, candidates[i], Scalar(0,255,0));
-        [self.imgs addObject:[UIImageCVMatConverter UIImageFromCVMat:srcImagge]];
-        [self.imgs addObject:[UIImageCVMatConverter UIImageFromCVMat:srcImagge(candidates[i])]];
+        cv::Mat roi ;
+        int r = imageCrop(rgbImage, roi, candidates[i]);
+        [self.imgs addObject:[UIImageCVMatConverter UIImageFromCVMat:roi]];
     }
+    [self.imgs addObject:[UIImageCVMatConverter UIImageFromCVMat:srcImagge]];
+
+}
+
+- (void)svmpredict {
+    cv::Ptr<ml::SVM> svm_;
+    std::string path = std::string("model/svm.xml");
+    if (!svm_->empty())
+        svm_->clear();
+    svm_ = ml::SVM::load<ml::SVM>(path);
 }
 @end
