@@ -14,6 +14,7 @@
 #import "ActionItem.h"
 
 #import "MserLocateController.h"
+#import "EdgeLocateController.h"
 
 @interface ViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property(nonatomic,strong)UITableView *ctrTB;
@@ -45,6 +46,9 @@
     [self addActionBlk:^{
           [weakSelf.navigationController pushViewController:[[MserLocateController alloc] init] animated:YES];
     } withText:@"mser"];
+    [self addActionBlk:^{
+        [weakSelf.navigationController pushViewController:[[EdgeLocateController alloc] init] animated:YES];
+    } withText:@"edge"];
   
 }
 

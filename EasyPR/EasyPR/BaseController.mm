@@ -31,7 +31,7 @@ using namespace std;
     self.imgs = [NSMutableArray array];
     NSString *nsstring=[[NSBundle mainBundle] pathForResource:@"plate_judge" ofType:@"jpg"];
     //    nsstring=[[NSBundle mainBundle] pathForResource:@"test" ofType:@"jpg"];
-    nsstring=[[NSBundle mainBundle] pathForResource:@"test2" ofType:@"jpeg"];
+//    nsstring=[[NSBundle mainBundle] pathForResource:@"car3" ofType:@"jpg"];
     
     string image_path=[nsstring UTF8String];
     Mat orginImg = imread(image_path, IMREAD_UNCHANGED);
