@@ -72,6 +72,8 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reUseCell];
     UIImage *image = _dataArr[indexPath.row];
+//    cell.contentMode = UIViewContentModeCenter;
+    cell.contentView.layer.contentsGravity = kCAGravityResizeAspect;
     cell.contentView.layer.contents = (__bridge id _Nullable)(image.CGImage);;
     return cell;
 }

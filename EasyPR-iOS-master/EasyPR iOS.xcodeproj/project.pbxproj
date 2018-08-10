@@ -195,7 +195,8 @@
 				53224D751D7BBE0F00F92C8B /* textDetect */,
 				53224D781D7BBE0F00F92C8B /* xmlParser */,
 			);
-			path = thirdparty;
+			name = thirdparty;
+			path = ../EasyPR/EasyPR/thirdparty;
 			sourceTree = "<group>";
 		};
 		53224D6D1D7BBE0F00F92C8B /* LBP */ = {
