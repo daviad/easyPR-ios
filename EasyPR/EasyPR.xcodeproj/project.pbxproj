@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B90FA270211C35500050DE42 /* car3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B90FA265211C354F0050DE42 /* car3.jpg */; };
+		B90FA271211C35500050DE42 /* wATH859.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B90FA266211C354F0050DE42 /* wATH859.jpg */; };
+		B90FA272211C35500050DE42 /* lLD9016.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B90FA267211C354F0050DE42 /* lLD9016.jpg */; };
+		B90FA273211C35500050DE42 /* wAUB816.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B90FA268211C354F0050DE42 /* wAUB816.jpg */; };
+		B90FA275211C35500050DE42 /* cAA662F.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B90FA26A211C354F0050DE42 /* cAA662F.jpg */; };
+		B90FA277211C35500050DE42 /* car4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B90FA26C211C35500050DE42 /* car4.jpg */; };
+		B90FA278211C35500050DE42 /* wA87271.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B90FA26D211C35500050DE42 /* wA87271.jpg */; };
+		B90FA279211C35500050DE42 /* car5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B90FA26E211C35500050DE42 /* car5.jpg */; };
 		B93FB9E8210EE5FE00DC1E4D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B93FB9E7210EE5FE00DC1E4D /* AppDelegate.m */; };
 		B93FB9EB210EE5FE00DC1E4D /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = B93FB9EA210EE5FE00DC1E4D /* ViewController.mm */; };
 		B93FB9EE210EE5FE00DC1E4D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B93FB9EC210EE5FE00DC1E4D /* Main.storyboard */; };
@@ -18,6 +26,8 @@
 		B947E6E12110138A007C8216 /* 1.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = B947E6E02110138A007C8216 /* 1.jpeg */; };
 		B947E6E4211013D1007C8216 /* UIImageCVMatConverter.mm in Sources */ = {isa = PBXBuildFile; fileRef = B947E6E2211013D1007C8216 /* UIImageCVMatConverter.mm */; };
 		B947E6E6211025D2007C8216 /* test.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B947E6E5211025D2007C8216 /* test.jpg */; };
+		B94E23B0211BD03C00E26504 /* EdgeLocateController.mm in Sources */ = {isa = PBXBuildFile; fileRef = B94E23AF211BD03C00E26504 /* EdgeLocateController.mm */; };
+		B94E23B2211BD96E00E26504 /* plate_judge.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B94E23B1211BD96E00E26504 /* plate_judge.jpg */; };
 		E42C978D211B2D1A00712339 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E42C977D211B2D1900712339 /* Assets.xcassets */; };
 		E42C978E211B2D1A00712339 /* LanelineController.m in Sources */ = {isa = PBXBuildFile; fileRef = E42C977E211B2D1900712339 /* LanelineController.m */; };
 		E42C978F211B2D1A00712339 /* test2.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = E42C9780211B2D1A00712339 /* test2.jpeg */; };
@@ -43,6 +53,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B90FA265211C354F0050DE42 /* car3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = car3.jpg; sourceTree = "<group>"; };
+		B90FA266211C354F0050DE42 /* wATH859.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = wATH859.jpg; sourceTree = "<group>"; };
+		B90FA267211C354F0050DE42 /* lLD9016.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = lLD9016.jpg; sourceTree = "<group>"; };
+		B90FA268211C354F0050DE42 /* wAUB816.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = wAUB816.jpg; sourceTree = "<group>"; };
+		B90FA26A211C354F0050DE42 /* cAA662F.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cAA662F.jpg; sourceTree = "<group>"; };
+		B90FA26C211C35500050DE42 /* car4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = car4.jpg; sourceTree = "<group>"; };
+		B90FA26D211C35500050DE42 /* wA87271.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = wA87271.jpg; sourceTree = "<group>"; };
+		B90FA26E211C35500050DE42 /* car5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = car5.jpg; sourceTree = "<group>"; };
 		B93FB9E3210EE5FE00DC1E4D /* EasyPR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EasyPR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B93FB9E6210EE5FE00DC1E4D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B93FB9E7210EE5FE00DC1E4D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -61,6 +79,9 @@
 		B947E6E2211013D1007C8216 /* UIImageCVMatConverter.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = UIImageCVMatConverter.mm; sourceTree = "<group>"; };
 		B947E6E3211013D1007C8216 /* UIImageCVMatConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIImageCVMatConverter.h; sourceTree = "<group>"; };
 		B947E6E5211025D2007C8216 /* test.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = test.jpg; sourceTree = "<group>"; };
+		B94E23AE211BD03C00E26504 /* EdgeLocateController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EdgeLocateController.h; sourceTree = "<group>"; };
+		B94E23AF211BD03C00E26504 /* EdgeLocateController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = EdgeLocateController.mm; sourceTree = "<group>"; };
+		B94E23B1211BD96E00E26504 /* plate_judge.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = plate_judge.jpg; sourceTree = "<group>"; };
 		E42C977D211B2D1900712339 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E42C977E211B2D1900712339 /* LanelineController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LanelineController.m; sourceTree = "<group>"; };
 		E42C977F211B2D1900712339 /* ContourTestController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContourTestController.h; sourceTree = "<group>"; };
@@ -101,6 +122,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B90FA263211C35190050DE42 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				B90FA26A211C354F0050DE42 /* cAA662F.jpg */,
+				B90FA265211C354F0050DE42 /* car3.jpg */,
+				B90FA26C211C35500050DE42 /* car4.jpg */,
+				B90FA26E211C35500050DE42 /* car5.jpg */,
+				B90FA267211C354F0050DE42 /* lLD9016.jpg */,
+				B90FA26D211C35500050DE42 /* wA87271.jpg */,
+				B90FA266211C354F0050DE42 /* wATH859.jpg */,
+				B90FA268211C354F0050DE42 /* wAUB816.jpg */,
+				B947E6E5211025D2007C8216 /* test.jpg */,
+				B947E6E02110138A007C8216 /* 1.jpeg */,
+				B94E23B1211BD96E00E26504 /* plate_judge.jpg */,
+			);
+			path = images;
+			sourceTree = "<group>";
+		};
 		B93FB9DA210EE5FD00DC1E4D = {
 			isa = PBXGroup;
 			children = (
@@ -122,6 +161,7 @@
 		B93FB9E5210EE5FE00DC1E4D /* EasyPR */ = {
 			isa = PBXGroup;
 			children = (
+				B90FA263211C35190050DE42 /* images */,
 				E42C9799211B350300712339 /* locate */,
 				E42C977D211B2D1900712339 /* Assets.xcassets */,
 				E42C9784211B2D1A00712339 /* Base.lproj */,
@@ -137,8 +177,6 @@
 				E42C9780211B2D1A00712339 /* test2.jpeg */,
 				B947E6E3211013D1007C8216 /* UIImageCVMatConverter.h */,
 				B947E6E2211013D1007C8216 /* UIImageCVMatConverter.mm */,
-				B947E6E5211025D2007C8216 /* test.jpg */,
-				B947E6E02110138A007C8216 /* 1.jpeg */,
 				B93FB9E6210EE5FE00DC1E4D /* AppDelegate.h */,
 				B93FB9E7210EE5FE00DC1E4D /* AppDelegate.m */,
 				B93FB9E9210EE5FE00DC1E4D /* ViewController.h */,
@@ -180,6 +218,8 @@
 			children = (
 				E42C979D211B396300712339 /* MserLocateController.h */,
 				E42C979E211B396300712339 /* MserLocateController.mm */,
+				B94E23AE211BD03C00E26504 /* EdgeLocateController.h */,
+				B94E23AF211BD03C00E26504 /* EdgeLocateController.mm */,
 			);
 			path = locate;
 			sourceTree = "<group>";
@@ -233,6 +273,7 @@
 				TargetAttributes = {
 					B93FB9E2210EE5FD00DC1E4D = {
 						CreatedOnToolsVersion = 9.3;
+						LastSwiftMigration = 0930;
 					};
 					B93FB9FA210EE5FF00DC1E4D = {
 						CreatedOnToolsVersion = 9.3;
@@ -265,15 +306,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				E42C9793211B2D1A00712339 /* LaunchScreen.storyboard in Resources */,
+				B90FA277211C35500050DE42 /* car4.jpg in Resources */,
+				B90FA279211C35500050DE42 /* car5.jpg in Resources */,
+				B90FA275211C35500050DE42 /* cAA662F.jpg in Resources */,
+				B90FA270211C35500050DE42 /* car3.jpg in Resources */,
+				B90FA271211C35500050DE42 /* wATH859.jpg in Resources */,
 				E42C9794211B2D1A00712339 /* Main.storyboard in Resources */,
 				E42C978F211B2D1A00712339 /* test2.jpeg in Resources */,
+				B90FA272211C35500050DE42 /* lLD9016.jpg in Resources */,
 				B947E6E12110138A007C8216 /* 1.jpeg in Resources */,
+				B90FA273211C35500050DE42 /* wAUB816.jpg in Resources */,
 				B947E6E6211025D2007C8216 /* test.jpg in Resources */,
 				B93FB9F3210EE5FF00DC1E4D /* LaunchScreen.storyboard in Resources */,
 				B93FB9F0210EE5FF00DC1E4D /* Assets.xcassets in Resources */,
+				B94E23B2211BD96E00E26504 /* plate_judge.jpg in Resources */,
 				E42C978D211B2D1A00712339 /* Assets.xcassets in Resources */,
 				B93FB9EE210EE5FE00DC1E4D /* Main.storyboard in Resources */,
 				B93FBA0B210EE63700DC1E4D /* log.md in Resources */,
+				B90FA278211C35500050DE42 /* wA87271.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,6 +347,7 @@
 				B93FB9EB210EE5FE00DC1E4D /* ViewController.mm in Sources */,
 				E42C9791211B2D1A00712339 /* ContourTestController.mm in Sources */,
 				B93FB9F6210EE5FF00DC1E4D /* main.m in Sources */,
+				B94E23B0211BD03C00E26504 /* EdgeLocateController.mm in Sources */,
 				E42C9798211B329D00712339 /* ActionItem.m in Sources */,
 				E42C979C211B360600712339 /* BaseController.mm in Sources */,
 				E42C978E211B2D1A00712339 /* LanelineController.m in Sources */,
@@ -473,6 +524,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6D7J43H33A;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -486,6 +538,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = dxw.test.EasyPR;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "EasyPR/locate/EasyPR-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -494,6 +549,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6D7J43H33A;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -507,6 +563,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = dxw.test.EasyPR;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "EasyPR/locate/EasyPR-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

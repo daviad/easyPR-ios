@@ -57,6 +57,7 @@
 		53EBCCFE1A7B447A002F67C1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53EBCCFA1A7B447A002F67C1 /* UIKit.framework */; };
 		53EBCCFF1A7B447A002F67C1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53EBCCFB1A7B447A002F67C1 /* Foundation.framework */; };
 		53EBCD001A7B447A002F67C1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53EBCCFC1A7B447A002F67C1 /* CoreGraphics.framework */; };
+		B90FA27C211C3AD20050DE42 /* ShowController.m in Sources */ = {isa = PBXBuildFile; fileRef = B90FA27A211C3AD20050DE42 /* ShowController.m */; };
 		B93FBA16210EEADA00DC1E4D /* EasyPR_iOSTests.mm in Sources */ = {isa = PBXBuildFile; fileRef = B93FBA15210EEADA00DC1E4D /* EasyPR_iOSTests.mm */; };
 		B93FBA1D210EEC1F00DC1E4D /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53BB0FED1B12B1E100A31F23 /* opencv2.framework */; };
 		B947E6EA2110350C007C8216 /* DebugController.mm in Sources */ = {isa = PBXBuildFile; fileRef = B947E6E92110350C007C8216 /* DebugController.mm */; };
@@ -142,6 +143,8 @@
 		53EBCCFA1A7B447A002F67C1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		53EBCCFB1A7B447A002F67C1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		53EBCCFC1A7B447A002F67C1 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		B90FA27A211C3AD20050DE42 /* ShowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShowController.m; path = ../../../EasyPR/EasyPR/ShowController.m; sourceTree = "<group>"; };
+		B90FA27B211C3AD20050DE42 /* ShowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShowController.h; path = ../../../EasyPR/EasyPR/ShowController.h; sourceTree = "<group>"; };
 		B93FBA13210EEADA00DC1E4D /* EasyPR iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "EasyPR iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B93FBA15210EEADA00DC1E4D /* EasyPR_iOSTests.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = EasyPR_iOSTests.mm; sourceTree = "<group>"; };
 		B93FBA17210EEADA00DC1E4D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -388,6 +391,8 @@
 		B947E6E7211034E6007C8216 /* debug */ = {
 			isa = PBXGroup;
 			children = (
+				B90FA27B211C3AD20050DE42 /* ShowController.h */,
+				B90FA27A211C3AD20050DE42 /* ShowController.m */,
 				B947E6F721103DAE007C8216 /* configViews */,
 				B947E6E82110350C007C8216 /* DebugController.h */,
 				B947E6E92110350C007C8216 /* DebugController.mm */,
@@ -545,6 +550,7 @@
 				53804AB81D72D0F8007C2D7E /* mc_data.cpp in Sources */,
 				53CB67021A7C9E05007B7FEB /* SVProgressHUD.m in Sources */,
 				53804ABE1D72D0F8007C2D7E /* util.cpp in Sources */,
+				B90FA27C211C3AD20050DE42 /* ShowController.m in Sources */,
 				B947E6ED21103741007C8216 /* DisplayCell.m in Sources */,
 				53804ABC1D72D0F8007C2D7E /* kv.cpp in Sources */,
 				53804AAF1D72D0F8007C2D7E /* feature.cpp in Sources */,

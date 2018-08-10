@@ -204,11 +204,11 @@ CPlateRecognize pr;
     
     cout << "test_plate_recognize" << endl;
    
-    pr.setLifemode(true);
+    pr.setLifemode(false);
     pr.setDebug(false);
     pr.setMaxPlates(4);
-    //pr.setDetectType(PR_DETECT_COLOR | PR_DETECT_SOBEL);
-    pr.setDetectType(easypr::PR_DETECT_CMSER);
+    pr.setDetectType(PR_DETECT_COLOR | PR_DETECT_SOBEL);
+//    pr.setDetectType(easypr::PR_DETECT_CMSER);
     
     
     CGRect bounds = [UIScreen mainScreen].bounds;
