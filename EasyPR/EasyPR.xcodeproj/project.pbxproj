@@ -40,6 +40,8 @@
 		E42C9798211B329D00712339 /* ActionItem.m in Sources */ = {isa = PBXBuildFile; fileRef = E42C9797211B329D00712339 /* ActionItem.m */; };
 		E42C979C211B360600712339 /* BaseController.mm in Sources */ = {isa = PBXBuildFile; fileRef = E42C979B211B360600712339 /* BaseController.mm */; };
 		E42C979F211B396300712339 /* MserLocateController.mm in Sources */ = {isa = PBXBuildFile; fileRef = E42C979E211B396300712339 /* MserLocateController.mm */; };
+		E44B8106211FF5B400DF03AC /* lbp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B98C43C1211D2BC500B8409D /* lbp.cpp */; };
+		E44B8107211FF5B800DF03AC /* helper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B98C43BF211D2BC500B8409D /* helper.cpp */; };
 		E46199A1211C702A00499C8D /* CommHandle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E46199A0211C702A00499C8D /* CommHandle.cpp */; };
 /* End PBXBuildFile section */
 
@@ -408,6 +410,8 @@
 			files = (
 				E42C979F211B396300712339 /* MserLocateController.mm in Sources */,
 				E42C9795211B2D1A00712339 /* PlateRecognitionController.mm in Sources */,
+				E44B8107211FF5B800DF03AC /* helper.cpp in Sources */,
+				E44B8106211FF5B400DF03AC /* lbp.cpp in Sources */,
 				B947E6E4211013D1007C8216 /* UIImageCVMatConverter.mm in Sources */,
 				B93FB9EB210EE5FE00DC1E4D /* ViewController.mm in Sources */,
 				E42C9791211B2D1A00712339 /* ContourTestController.mm in Sources */,

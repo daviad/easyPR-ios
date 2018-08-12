@@ -5,10 +5,11 @@
 //  Created by 丁秀伟 on 2018/8/8.
 //  Copyright © 2018年  dingxiuwei. All rights reserved.
 //
-//#import "lbp.hpp"
 #import <opencv2/opencv.hpp>
 
 #import "MserLocateController.h"
+
+#import "lbp.hpp"
 
 using namespace cv;
 using namespace std;
@@ -163,7 +164,7 @@ void getLBPFeatures(const Mat& image, Mat& features) {
     //  destroyWindow("grayImage");
     //}
     
-    //spatial_ostu(grayImage, 8, 2);
+//    spatial_ostu(grayImage, 8, 2);
     
     //if (1) {
     //  imshow("grayImage", grayImage);
@@ -171,21 +172,22 @@ void getLBPFeatures(const Mat& image, Mat& features) {
     //  destroyWindow("grayImage");
     //}
     
-//    Mat lbpimage;
-//    lbpimage = libfacerec::olbp(grayImage);
-//    Mat lbp_hist = libfacerec::spatial_histogram(lbpimage, 32, 4, 4);
+    Mat lbpimage;
+    lbpimage = libfacerec::olbp(grayImage);
+    Mat lbp_hist = libfacerec::spatial_histogram(lbpimage, 32, 4, 4);
 //
-//    features = lbp_hist;
+    features = lbp_hist;
 }
 
 - (CGFloat)svmpredict:(Mat)plate {
     cv::Ptr<ml::SVM> svm_;
     NSString *nsstring=[[NSBundle mainBundle] pathForResource:@"model/svm" ofType:@"xml"];
-    string image_path=[nsstring UTF8String];
-    std::string path = std::string("model/svm.xml");
+    string path=[nsstring UTF8String];
     svm_ = ml::SVM::load<ml::SVM>(path);
     Mat features;
+    getLBPFeatures(plate, features);
     float score = svm_->predict(features, noArray(), cv::ml::StatModel::Flags::RAW_OUTPUT);
+    printf("score:%f \n",score);
     return score;
 }
 @end
