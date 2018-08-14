@@ -209,6 +209,7 @@ void getLBPFeatures(const Mat& image, Mat& features) {
 
 }
 //https://blog.csdn.net/m0_38025293/article/details/70182513
+//https://blog.csdn.net/lichengyu/article/details/21888609
 - (void)horizontalProjectionMat:(Mat)binImg {
 //    blur(srcImg, binImg, cv::Size(3, 3));
     int perPixelValue = 0;//每个像素的值
