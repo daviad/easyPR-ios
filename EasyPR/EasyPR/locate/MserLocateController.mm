@@ -205,12 +205,15 @@ void getLBPFeatures(const Mat& image, Mat& features) {
     cv::cvtColor(plate, grayPlate, CV_RGB2GRAY);
     cv::threshold(grayPlate, grayPlate, 0, 255, CV_THRESH_BINARY + CV_THRESH_OTSU);
     [self.imgs addObject:[UIImageCVMatConverter UIImageFromCVMat:grayPlate]];
-    [self horizontalProjectionMat:grayPlate];
-
+    Mat roi = [self horizontalProjectionMat:grayPlate];
+    [self.imgs addObject:[UIImageCVMatConverter UIImageFromCVMat:roi]];
+    
+//    垂直投影
+//    https://blog.csdn.net/u011574296/article/details/70139563
 }
 //https://blog.csdn.net/m0_38025293/article/details/70182513
 //https://blog.csdn.net/lichengyu/article/details/21888609
-- (void)horizontalProjectionMat:(Mat)binImg {
+- (cv::Mat)horizontalProjectionMat:(Mat)binImg {
 //    blur(srcImg, binImg, cv::Size(3, 3));
     int perPixelValue = 0;//每个像素的值
     int width = binImg.cols;
@@ -227,49 +230,49 @@ void getLBPFeatures(const Mat& image, Mat& features) {
     }
     
     Mat horizontalProjectionMat(height,width,CV_8UC1);//创建画布
-    for (int i = 0; i < width; i++) {
-        for (int j = 0; j < height; j++) {
+    for (int i = 0; i < height; i++) {
+        for (int j = 0; j < width; j++) {
             perPixelValue = 255;
-            horizontalProjectionMat.at<unichar>(i,j) = perPixelValue;//设置背景为白色
+            horizontalProjectionMat.at<uchar>(i,j) = perPixelValue;//设置背景为白色
         }
     }
     
     for (int i = 0; i < height; i++) {//水平直方图
         for (int j = 0; j < projectValArry[i]; j++) {
             perPixelValue = 0;
-            horizontalProjectionMat.at<uchar>(i,width - 1 - j) = perPixelValue;//设置直方图为黑色
+            horizontalProjectionMat.at<uchar>(i,j) = perPixelValue;//设置直方图为黑色
         }
     }
-    [self.imgs addObject:[UIImageCVMatConverter UIImageFromCVMat:horizontalProjectionMat]];
+    Mat tmp = horizontalProjectionMat;
+    [self.imgs addObject:[UIImageCVMatConverter UIImageFromCVMat:tmp]];
 
     vector<Mat> roiList;//用于储存分割出来的每个字符
     //记录进入字符区的索引
-    
+    int startIndex = 0;
+    //记录进入空白区域的索引
+    int endIndex = 0;
+    //是否遍历到了字符区内
+    bool inBlock = false;
+    for (int i = 0; i <binImg.rows; i++)
+    {
+        if (!inBlock && projectValArry[i] >  10)//进入字符区
+        {
+            inBlock = true;
+            startIndex = i;
+        }
+        else if (inBlock && projectValArry[i] < 10)//进入空白区
+        {
+            endIndex = i;
+            inBlock = false;
+            Mat roiImg = binImg(Range(startIndex, endIndex + 1), Range(0, binImg.cols));//从原图中截取有图像的区域
+            roiList.push_back(roiImg);
+        }
+    }
+    delete[] projectValArry;
+    return roiList.front();
 }
 
 
-//    vector<Mat> roiList;//用于储存分割出来的每个字符
-//    int startIndex = 0;//记录进入字符区的索引
-//    int endIndex = 0;//记录进入空白区域的索引
-//    bool inBlock = false;//是否遍历到了字符区内
-//    for (int i = 0; i <srcImg.rows; i++)
-//    {
-//        if (!inBlock && projectValArry[i] != 0)//进入字符区
-//        {
-//            inBlock = true;
-//            startIndex = i;
-//        }
-//        else if (inBlock && projectValArry[i] == 0)//进入空白区
-//        {
-//            endIndex = i;
-//            inBlock = false;
-//            Mat roiImg = srcImg(Range(startIndex, endIndex + 1), Range(0, srcImg.cols));//从原图中截取有图像的区域
-//            roiList.push_back(roiImg);
-//        }
-//    }
-//    delete[] projectValArry;
-//    return roiList;
-//}
 //vector<Mat> verticalProjectionMat(Mat srcImg)//垂直投影
 //{
 //    Mat binImg;

@@ -36,7 +36,6 @@
 		53804ABC1D72D0F8007C2D7E /* kv.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 53804AA81D72D0F8007C2D7E /* kv.cpp */; };
 		53804ABD1D72D0F8007C2D7E /* program_options.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 53804AA91D72D0F8007C2D7E /* program_options.cpp */; };
 		53804ABE1D72D0F8007C2D7E /* util.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 53804AAA1D72D0F8007C2D7E /* util.cpp */; };
-		53BB0FEE1B12B1E100A31F23 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53BB0FED1B12B1E100A31F23 /* opencv2.framework */; };
 		53CB67011A7C9E05007B7FEB /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 53CB66FE1A7C9E05007B7FEB /* SVProgressHUD.bundle */; };
 		53CB67021A7C9E05007B7FEB /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 53CB67001A7C9E05007B7FEB /* SVProgressHUD.m */; };
 		53CB68111A7CAD61007B7FEB /* 华文细黑.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 53CB68101A7CAD61007B7FEB /* 华文细黑.ttf */; };
@@ -62,6 +61,7 @@
 		B947E6F621103A32007C8216 /* DisplayConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = B947E6F521103A32007C8216 /* DisplayConfig.m */; };
 		B947E6FA2110446B007C8216 /* DisplayCellLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = B947E6F92110446B007C8216 /* DisplayCellLayout.m */; };
 		B947E6FD21104830007C8216 /* BaseConfigView.m in Sources */ = {isa = PBXBuildFile; fileRef = B947E6FC21104830007C8216 /* BaseConfigView.m */; };
+		E4AA96042122FB330028DE10 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4AA96032122FB330028DE10 /* opencv2.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -147,6 +147,7 @@
 		B947E6F92110446B007C8216 /* DisplayCellLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DisplayCellLayout.m; sourceTree = "<group>"; };
 		B947E6FB21104830007C8216 /* BaseConfigView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseConfigView.h; sourceTree = "<group>"; };
 		B947E6FC21104830007C8216 /* BaseConfigView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseConfigView.m; sourceTree = "<group>"; };
+		E4AA96032122FB330028DE10 /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = opencv2.framework; path = ../EasyPR/EasyPR/opencv2.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,7 +157,7 @@
 			files = (
 				53EBCD001A7B447A002F67C1 /* CoreGraphics.framework in Frameworks */,
 				53EBCCFF1A7B447A002F67C1 /* Foundation.framework in Frameworks */,
-				53BB0FEE1B12B1E100A31F23 /* opencv2.framework in Frameworks */,
+				E4AA96042122FB330028DE10 /* opencv2.framework in Frameworks */,
 				53EBCCFE1A7B447A002F67C1 /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -241,6 +242,7 @@
 		53EBCCC31A7B445E002F67C1 = {
 			isa = PBXGroup;
 			children = (
+				E4AA96032122FB330028DE10 /* opencv2.framework */,
 				B91B3E022122D1F50045484A /* thirdparty */,
 				53224D9E1D7BDECB00F92C8B /* VideoCamera */,
 				53224D9C1D7BCDB800F92C8B /* image */,
