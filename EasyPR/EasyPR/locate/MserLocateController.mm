@@ -45,8 +45,51 @@ int imageCrop(InputArray src, OutputArray dst, cv::Rect rect)
     }
 }
 
+- (void)xx {
+    Mat c = Mat::zeros(3, 5, CV_8UC1);
+//    //对a的第一列进行赋值
+//    a.col(0) = c.col(0);
+//    //将c的1-5列赋值给a
+//    a.colRange(1, 6) = c;
+       cout<<c<<endl;
+    c.col(0) = 1;
+    cout<<c<<endl;
+    Mat dst(1,5,CV_8UC1,cv::Scalar(0));
+    cout<<"dist"<<dst<<endl;
+    reduce(c, dst, 0, CV_REDUCE_SUM,CV_32S);
+    cout << dst<<endl;
+    
+    double a[5][4] =
+    {
+        { 4, 0, 2, 5 },
+        { 1, 1, 0, 7 },
+        { 0, 5, 2, 0 },
+        { 0, 3, 4, 0 },
+        { 8, 0, 1, 2 }
+    };
+    
+    Mat ma(5, 4, CV_64FC1, a);
+    Mat mb(5, 1, CV_64FC1, Scalar(0));
+    Mat mc(1, 4, CV_64FC1, Scalar(0));
+    
+    cout << "原矩阵：" << endl;
+    cout << ma << endl;
+    
+    reduce(ma, mb, 1, CV_REDUCE_SUM);
+    cout << "列向量" << endl;
+    cout << mb << endl;
+    
+    reduce(ma, mc, 0, CV_REDUCE_SUM);
+    cout << "行向量" << endl;
+    cout << mc << endl;
+    
+    
+}
+
 - (void)handleImage:(cv::Mat)srcImagge
 {
+    [self xx];
+    return;
     Mat rgbImage = srcImagge.clone();
     // HSV空间转换
     Mat gray,gray_neg;
@@ -211,6 +254,15 @@ void getLBPFeatures(const Mat& image, Mat& features) {
 //    垂直投影
 //    https://blog.csdn.net/u011574296/article/details/70139563
 }
+
+//- (cv::Mat)clearNoisePoint:(cv::Mat)plate {
+//    int rows = plate.rows;
+//    int cols = plate.cols;
+////    for (int cols = 0 ; cols < rows; cols++) {
+////        plate.
+////    }
+//}
+
 //https://blog.csdn.net/m0_38025293/article/details/70182513
 //https://blog.csdn.net/lichengyu/article/details/21888609
 - (cv::Mat)horizontalProjectionMat:(Mat)binImg {
@@ -272,6 +324,67 @@ void getLBPFeatures(const Mat& image, Mat& features) {
     return roiList.front();
 }
 
+-(cv::Mat)verticalProjectionMat:(Mat)binImg {
+    int perPixelValue;//每个像素的值
+    int width = binImg.cols;
+    int height = binImg.rows;
+    int* projectValArry = new int[width];//创建用于储存每列白色像素个数的数组
+    memset(projectValArry, 0, width * 4);//初始化数组
+    for (int col = 0; col < width; col++)
+    {
+        for (int row = 0; row < height;row++)
+        {
+            perPixelValue = binImg.at<uchar>(row, col);
+            if (perPixelValue == 255)//如果是黑底白字
+            {
+                projectValArry[col]++;
+            }
+        }
+    }
+    Mat verticalProjectionMat(height, width, CV_8UC1);//垂直投影的画布
+    for (int i = 0; i < height; i++)
+    {
+        for (int j = 0; j < width; j++)
+        {
+            perPixelValue = 255;  //背景设置为白色
+            verticalProjectionMat.at<uchar>(i, j) = perPixelValue;
+        }
+    }
+    
+    [self.imgs addObject:[UIImageCVMatConverter UIImageFromCVMat:verticalProjectionMat]];
+
+    
+    for (int i = 0; i < width; i++)//垂直投影直方图
+    {
+        for (int j = 0; j < projectValArry[i]; j++)
+        {
+            perPixelValue = 0;  //直方图设置为黑色
+            verticalProjectionMat.at<uchar>(height - 1 - j, i) = perPixelValue;
+        }
+    }
+    
+    vector<Mat> roiList;//用于储存分割出来的每个字符
+    int startIndex = 0;//记录进入字符区的索引
+    int endIndex = 0;//记录进入空白区域的索引
+    bool inBlock = false;//是否遍历到了字符区内
+    for (int i = 0; i < binImg.cols; i++)//cols=width
+    {
+        if (!inBlock && projectValArry[i] != 0)//进入字符区
+        {
+            inBlock = true;
+            startIndex = i;
+        }
+        else if (projectValArry[i] == 0 && inBlock)//进入空白区
+        {
+            endIndex = i;
+            inBlock = false;
+            Mat roiImg = binImg(Range(0, binImg.rows), Range(startIndex, endIndex + 1));
+            roiList.push_back(roiImg);
+        }
+    }
+    delete[] projectValArry;
+    return roiList.front();
+}
 
 //vector<Mat> verticalProjectionMat(Mat srcImg)//垂直投影
 //{
