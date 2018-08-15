@@ -67,7 +67,6 @@ int imageCrop(InputArray src, OutputArray dst, cv::Rect rect)
         { 0, 3, 4, 0 },
         { 8, 0, 1, 2 }
     };
-    
     Mat ma(5, 4, CV_64FC1, a);
     Mat mb(5, 1, CV_64FC1, Scalar(0));
     Mat mc(1, 4, CV_64FC1, Scalar(0));
@@ -88,8 +87,8 @@ int imageCrop(InputArray src, OutputArray dst, cv::Rect rect)
 
 - (void)handleImage:(cv::Mat)srcImagge
 {
-    [self xx];
-    return;
+//    [self xx];
+//    return;
     Mat rgbImage = srcImagge.clone();
     // HSV空间转换
     Mat gray,gray_neg;
@@ -248,20 +247,29 @@ void getLBPFeatures(const Mat& image, Mat& features) {
     cv::cvtColor(plate, grayPlate, CV_RGB2GRAY);
     cv::threshold(grayPlate, grayPlate, 0, 255, CV_THRESH_BINARY + CV_THRESH_OTSU);
     [self.imgs addObject:[UIImageCVMatConverter UIImageFromCVMat:grayPlate]];
+    
     Mat roi = [self horizontalProjectionMat:grayPlate];
     [self.imgs addObject:[UIImageCVMatConverter UIImageFromCVMat:roi]];
     
+    [self clearNoisePoint:roi];
 //    垂直投影
 //    https://blog.csdn.net/u011574296/article/details/70139563
 }
 
-//- (cv::Mat)clearNoisePoint:(cv::Mat)plate {
-//    int rows = plate.rows;
-//    int cols = plate.cols;
-////    for (int cols = 0 ; cols < rows; cols++) {
-////        plate.
-////    }
-//}
+- (cv::Mat)clearNoisePoint:(cv::Mat)plate {
+    int cols = plate.cols;
+    for (int col = 0 ; col < cols; col++) {
+       Mat tmp = plate.col(col);
+//        cout << "tmp " << col << ":" << tmp <<endl;
+        int c =  cv::countNonZero(tmp);
+          plate.col(0) = 0;
+//        if (c < 5) {
+//            plate.col(0) = 0;
+//        }
+    }
+    [self.imgs addObject:[UIImageCVMatConverter UIImageFromCVMat:plate]];
+    return plate;
+}
 
 //https://blog.csdn.net/m0_38025293/article/details/70182513
 //https://blog.csdn.net/lichengyu/article/details/21888609
