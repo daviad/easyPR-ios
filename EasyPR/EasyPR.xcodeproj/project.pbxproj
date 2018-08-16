@@ -240,6 +240,7 @@
 		B93FB9E5210EE5FE00DC1E4D /* EasyPR */ = {
 			isa = PBXGroup;
 			children = (
+				B994233C21254B1B00620102 /* core */,
 				B91B3E062122D6300045484A /* thirdparty */,
 				B91B3E012122C9EC0045484A /* chars */,
 				B98C43B8211D20C200B8409D /* model */,
@@ -285,6 +286,13 @@
 				B93FBA01210EE5FF00DC1E4D /* Info.plist */,
 			);
 			path = EasyPRTests;
+			sourceTree = "<group>";
+		};
+		B994233C21254B1B00620102 /* core */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = core;
 			sourceTree = "<group>";
 		};
 		E42C9784211B2D1A00712339 /* Base.lproj */ = {

@@ -29,8 +29,6 @@
 		53804AAB1D72D0F8007C2D7E /* chars_identify.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 53804A941D72D0F8007C2D7E /* chars_identify.cpp */; };
 		53804AAC1D72D0F8007C2D7E /* chars_recognise.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 53804A951D72D0F8007C2D7E /* chars_recognise.cpp */; };
 		53804AAD1D72D0F8007C2D7E /* chars_segment.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 53804A961D72D0F8007C2D7E /* chars_segment.cpp */; };
-		53804AAE1D72D0F8007C2D7E /* core_func.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 53804A971D72D0F8007C2D7E /* core_func.cpp */; };
-		53804AAF1D72D0F8007C2D7E /* feature.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 53804A981D72D0F8007C2D7E /* feature.cpp */; };
 		53804AB01D72D0F8007C2D7E /* params.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 53804A991D72D0F8007C2D7E /* params.cpp */; };
 		53804AB21D72D0F8007C2D7E /* plate_detect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 53804A9B1D72D0F8007C2D7E /* plate_detect.cpp */; };
 		53804AB31D72D0F8007C2D7E /* plate_judge.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 53804A9C1D72D0F8007C2D7E /* plate_judge.cpp */; };
@@ -57,6 +55,8 @@
 		53EBCCFE1A7B447A002F67C1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53EBCCFA1A7B447A002F67C1 /* UIKit.framework */; };
 		53EBCCFF1A7B447A002F67C1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53EBCCFB1A7B447A002F67C1 /* Foundation.framework */; };
 		53EBCD001A7B447A002F67C1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53EBCCFC1A7B447A002F67C1 /* CoreGraphics.framework */; };
+		B994234021254BBA00620102 /* core_func.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B994233F21254BBA00620102 /* core_func.cpp */; };
+		B994234421254C0A00620102 /* feature.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B994234221254C0900620102 /* feature.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -89,8 +89,6 @@
 		53804A941D72D0F8007C2D7E /* chars_identify.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = chars_identify.cpp; sourceTree = "<group>"; };
 		53804A951D72D0F8007C2D7E /* chars_recognise.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = chars_recognise.cpp; sourceTree = "<group>"; };
 		53804A961D72D0F8007C2D7E /* chars_segment.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = chars_segment.cpp; sourceTree = "<group>"; };
-		53804A971D72D0F8007C2D7E /* core_func.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = core_func.cpp; sourceTree = "<group>"; };
-		53804A981D72D0F8007C2D7E /* feature.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = feature.cpp; sourceTree = "<group>"; };
 		53804A991D72D0F8007C2D7E /* params.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = params.cpp; sourceTree = "<group>"; };
 		53804A9B1D72D0F8007C2D7E /* plate_detect.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = plate_detect.cpp; sourceTree = "<group>"; };
 		53804A9C1D72D0F8007C2D7E /* plate_judge.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = plate_judge.cpp; sourceTree = "<group>"; };
@@ -123,6 +121,8 @@
 		53EBCCFA1A7B447A002F67C1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		53EBCCFB1A7B447A002F67C1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		53EBCCFC1A7B447A002F67C1 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		B994233F21254BBA00620102 /* core_func.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = core_func.cpp; sourceTree = "<group>"; };
+		B994234221254C0900620102 /* feature.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = feature.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -212,11 +212,11 @@
 		53804A931D72D0F8007C2D7E /* core */ = {
 			isa = PBXGroup;
 			children = (
+				B994234221254C0900620102 /* feature.cpp */,
+				B994233F21254BBA00620102 /* core_func.cpp */,
 				53804A941D72D0F8007C2D7E /* chars_identify.cpp */,
 				53804A951D72D0F8007C2D7E /* chars_recognise.cpp */,
 				53804A961D72D0F8007C2D7E /* chars_segment.cpp */,
-				53804A971D72D0F8007C2D7E /* core_func.cpp */,
-				53804A981D72D0F8007C2D7E /* feature.cpp */,
 				53804A991D72D0F8007C2D7E /* params.cpp */,
 				53804A9B1D72D0F8007C2D7E /* plate_detect.cpp */,
 				53804A9C1D72D0F8007C2D7E /* plate_judge.cpp */,
@@ -415,17 +415,17 @@
 			files = (
 				53EBCCD51A7B445E002F67C1 /* AppDelegate.m in Sources */,
 				53804AB61D72D0F8007C2D7E /* deface.cpp in Sources */,
+				B994234421254C0A00620102 /* feature.cpp in Sources */,
+				B994234021254BBA00620102 /* core_func.cpp in Sources */,
 				53224D971D7BC34100F92C8B /* GlobalData.cpp in Sources */,
 				53EBCCD21A7B445E002F67C1 /* main.m in Sources */,
 				53804AB31D72D0F8007C2D7E /* plate_judge.cpp in Sources */,
 				53804ABD1D72D0F8007C2D7E /* program_options.cpp in Sources */,
-				53804AAE1D72D0F8007C2D7E /* core_func.cpp in Sources */,
 				53224D7E1D7BBE0F00F92C8B /* lbp.cpp in Sources */,
 				53804AB81D72D0F8007C2D7E /* mc_data.cpp in Sources */,
 				53CB67021A7C9E05007B7FEB /* SVProgressHUD.m in Sources */,
 				53804ABE1D72D0F8007C2D7E /* util.cpp in Sources */,
 				53804ABC1D72D0F8007C2D7E /* kv.cpp in Sources */,
-				53804AAF1D72D0F8007C2D7E /* feature.cpp in Sources */,
 				53804AB51D72D0F8007C2D7E /* plate_recognize.cpp in Sources */,
 				53804AAC1D72D0F8007C2D7E /* chars_recognise.cpp in Sources */,
 				53EBCCDB1A7B445E002F67C1 /* ViewController.mm in Sources */,
