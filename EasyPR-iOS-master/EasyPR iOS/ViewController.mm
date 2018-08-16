@@ -11,7 +11,6 @@
 #include "easypr.h"
 #include "easypr/util/switch.hpp"
 #include "GlobalData.hpp"
-#import "DebugController.h"
 using namespace easypr;
 CPlateRecognize pr;
 
@@ -196,6 +195,7 @@ CPlateRecognize pr;
 {
     [super viewDidLoad];
     
+    
     Camera_State=false;
     
     NSString* bundlePath=[[NSBundle mainBundle] bundlePath];
@@ -207,7 +207,7 @@ CPlateRecognize pr;
     pr.setLifemode(true);
     pr.setDebug(false);
     pr.setMaxPlates(4);
-//    pr.setDetectType(PR_DETECT_COLOR | PR_DETECT_SOBEL);
+    //pr.setDetectType(PR_DETECT_COLOR | PR_DETECT_SOBEL);
     pr.setDetectType(easypr::PR_DETECT_CMSER);
     
     
@@ -292,12 +292,6 @@ CPlateRecognize pr;
     resize(source_image, source_image,cv::Size(source_image.cols/2,source_image.rows/2));
     imageView.image=[UIImageCVMatConverter UIImageFromCVMat:source_image];
     [self plateRecognition:source_image];
-    
-    UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(self.view.frame.size.width - 100, 60, 60, 50)];
-    [self.view addSubview:btn];
-    btn.backgroundColor = [UIColor redColor];
-    [btn setTitle:@"debug" forState:UIControlStateNormal];
-    [btn addTarget:self action:@selector(debug) forControlEvents:UIControlEventTouchUpInside];
 }
 
 -(UIImage*)plateRecognition:(cv::Mat&)src
@@ -400,9 +394,4 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
     // Dispose of any resources that can be recreated.
 }
 
-- (void)debug {
-    DebugController *ctr = [[DebugController alloc] init];
-    [self addChildViewController:ctr];
-    [self.view addSubview:ctr.view];
-}
 @end
