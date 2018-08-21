@@ -85,6 +85,14 @@ void getLBPFeatures(const Mat& image, Mat& features) {
   features = lbp_hist;
 }
 
+void getHistomPlusColoFeatures(const Mat& image, Mat& features) {
+    // TODO
+    Mat feature1, feature2;
+    getHistogramFeatures(image, feature1);
+//    getColorFeatures(image, feature2);
+    hconcat(feature1.reshape(1, 1), feature2.reshape(1, 1), features);
+}
+
 Mat charFeatures(Mat in, int sizeData) {
   const int VERTICAL = 0;
   const int HORIZONTAL = 1;

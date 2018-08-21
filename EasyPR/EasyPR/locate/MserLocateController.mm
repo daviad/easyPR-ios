@@ -253,7 +253,11 @@ void getLBPFeatures(const Mat& image, Mat& features) {
     
     roi = [self clearNoisePoint:roi];
 //    垂直投影
-    [self verticalProjectionMat:roi];
+    vector<Mat> roiList = [self verticalProjectionMat:roi];
+    for (int i = 0;i < roiList.size();i++) {
+        Mat c = roiList[i];
+        [self.imgs addObject:[UIImageCVMatConverter UIImageFromCVMat:c]];
+    }
 }
 
 - (cv::Mat)clearNoisePoint:(cv::Mat)plate {
@@ -324,14 +328,14 @@ void getLBPFeatures(const Mat& image, Mat& features) {
             endIndex = i;
             inBlock = false;
             Mat roiImg = binImg(Range(startIndex, endIndex + 1), Range(0, binImg.cols));//从原图中截取有图像的区域
-            roiList.push_back(roiImg);
+            roiList.push_back(roiImg.clone());
         }
     }
     delete[] projectValArry;
     return roiList.front();
 }
 
--(cv::Mat)verticalProjectionMat:(Mat)binImg {
+-(vector<Mat>)verticalProjectionMat:(Mat)binImg {
     int perPixelValue;//每个像素的值
     int width = binImg.cols;
     int height = binImg.rows;
@@ -359,27 +363,32 @@ void getLBPFeatures(const Mat& image, Mat& features) {
         }
     }
     [self.imgs addObject:[UIImageCVMatConverter UIImageFromCVMat:verticalProjectionMat]];
+    
     vector<Mat> roiList;//用于储存分割出来的每个字符
     int startIndex = 0;//记录进入字符区的索引
     int endIndex = 0;//记录进入空白区域的索引
     bool inBlock = false;//是否遍历到了字符区内
-    for (int i = 0; i < binImg.cols; i++)//cols=width
-    {
-        if (!inBlock && projectValArry[i] != 0)//进入字符区
-        {
-            inBlock = true;
-            startIndex = i;
-        }
-        else if (projectValArry[i] == 0 && inBlock)//进入空白区
-        {
-            endIndex = i;
-            inBlock = false;
-            Mat roiImg = binImg(Range(0, binImg.rows), Range(startIndex, endIndex + 1));
-            roiList.push_back(roiImg);
-        }
-    }
+//    for (int i = 0; i < binImg.cols; i++)//cols=width
+//    {
+//        if (!inBlock && projectValArry[i] != 0)//进入字符区
+//        {
+//            inBlock = true;
+//            startIndex = i;
+//        }
+//        else if (projectValArry[i] == 0 && inBlock)//进入空白区
+//        {
+//            endIndex = i;
+//            inBlock = false;
+//            Mat roiImg = binImg(Range(0, binImg.rows), Range(startIndex, endIndex + 1));
+//            roiList.push_back(roiImg);
+//        }
+//    }
+    
+    Mat roiImg = binImg.colRange(1,17);//binImg(Range(0, binImg.rows), Range(0, 120));
+    roiList.push_back(roiImg);
+    
     delete[] projectValArry;
-    return roiList.front();
+    return roiList;
 }
 
 @end
