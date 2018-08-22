@@ -34,6 +34,13 @@
 		B947E6E6211025D2007C8216 /* test.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B947E6E5211025D2007C8216 /* test.jpg */; };
 		B94E23B0211BD03C00E26504 /* EdgeLocateController.mm in Sources */ = {isa = PBXBuildFile; fileRef = B94E23AF211BD03C00E26504 /* EdgeLocateController.mm */; };
 		B94E23B2211BD96E00E26504 /* plate_judge.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B94E23B1211BD96E00E26504 /* plate_judge.jpg */; };
+		B98A7AFB212CFAB1007F5249 /* plate.png in Resources */ = {isa = PBXBuildFile; fileRef = B98A7AFA212CFAB1007F5249 /* plate.png */; };
+		B98A7AFD212CFBBF007F5249 /* plate.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B98A7AFC212CFBBF007F5249 /* plate.jpg */; };
+		B98A7B03212D13C6007F5249 /* core_func.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B98A7B02212D13C6007F5249 /* core_func.cpp */; };
+		B98A7B07212D34A3007F5249 /* ann_train.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B98A7B05212D34A3007F5249 /* ann_train.cpp */; };
+		B98A7B0C212D6A58007F5249 /* util.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B98A7B0B212D6A58007F5249 /* util.cpp */; };
+		B98A7B0F212D6AA4007F5249 /* kv.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B98A7B0E212D6AA4007F5249 /* kv.cpp */; };
+		B98A7B12212D6AF0007F5249 /* libstdc++.6.0.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = B98A7B11212D6AF0007F5249 /* libstdc++.6.0.9.tbd */; };
 		B98C43B9211D20C200B8409D /* model in Resources */ = {isa = PBXBuildFile; fileRef = B98C43B8211D20C200B8409D /* model */; };
 		E42C978D211B2D1A00712339 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E42C977D211B2D1900712339 /* Assets.xcassets */; };
 		E42C978E211B2D1A00712339 /* LanelineController.m in Sources */ = {isa = PBXBuildFile; fileRef = E42C977E211B2D1900712339 /* LanelineController.m */; };
@@ -101,6 +108,17 @@
 		B94E23AE211BD03C00E26504 /* EdgeLocateController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EdgeLocateController.h; sourceTree = "<group>"; };
 		B94E23AF211BD03C00E26504 /* EdgeLocateController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = EdgeLocateController.mm; sourceTree = "<group>"; };
 		B94E23B1211BD96E00E26504 /* plate_judge.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = plate_judge.jpg; sourceTree = "<group>"; };
+		B98A7AFA212CFAB1007F5249 /* plate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plate.png; sourceTree = "<group>"; };
+		B98A7AFC212CFBBF007F5249 /* plate.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = plate.jpg; sourceTree = "<group>"; };
+		B98A7B02212D13C6007F5249 /* core_func.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = core_func.cpp; sourceTree = "<group>"; };
+		B98A7B05212D34A3007F5249 /* ann_train.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ann_train.cpp; sourceTree = "<group>"; };
+		B98A7B06212D34A3007F5249 /* ann_train.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ann_train.hpp; sourceTree = "<group>"; };
+		B98A7B08212D38EA007F5249 /* config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = config.h; sourceTree = "<group>"; };
+		B98A7B0A212D6A45007F5249 /* util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = util.h; sourceTree = "<group>"; };
+		B98A7B0B212D6A58007F5249 /* util.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = util.cpp; sourceTree = "<group>"; };
+		B98A7B0D212D6A92007F5249 /* kv.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = kv.h; sourceTree = "<group>"; };
+		B98A7B0E212D6AA4007F5249 /* kv.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = kv.cpp; sourceTree = "<group>"; };
+		B98A7B11212D6AF0007F5249 /* libstdc++.6.0.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.6.0.9.tbd"; path = "usr/lib/libstdc++.6.0.9.tbd"; sourceTree = SDKROOT; };
 		B98C43B8211D20C200B8409D /* model */ = {isa = PBXFileReference; lastKnownFileType = folder; name = model; path = "../../EasyPR-iOS-master/resources/model"; sourceTree = "<group>"; };
 		E42C977D211B2D1900712339 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E42C977E211B2D1900712339 /* LanelineController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LanelineController.m; sourceTree = "<group>"; };
@@ -129,6 +147,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B98A7B12212D6AF0007F5249 /* libstdc++.6.0.9.tbd in Frameworks */,
 				E42C9790211B2D1A00712339 /* opencv2.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -146,6 +165,8 @@
 		B90FA263211C35190050DE42 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				B98A7AFC212CFBBF007F5249 /* plate.jpg */,
+				B98A7AFA212CFAB1007F5249 /* plate.png */,
 				B91B3E042122D3140045484A /* chars_segment.jpg */,
 				B90FA26A211C354F0050DE42 /* cAA662F.jpg */,
 				B90FA265211C354F0050DE42 /* car3.jpg */,
@@ -225,6 +246,7 @@
 				B93FB9E5210EE5FE00DC1E4D /* EasyPR */,
 				B93FB9FE210EE5FF00DC1E4D /* EasyPRTests */,
 				B93FB9E4210EE5FE00DC1E4D /* Products */,
+				B98A7B10212D6AF0007F5249 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -240,6 +262,9 @@
 		B93FB9E5210EE5FE00DC1E4D /* EasyPR */ = {
 			isa = PBXGroup;
 			children = (
+				B98A7B09212D6A1E007F5249 /* utils */,
+				B98A7B08212D38EA007F5249 /* config.h */,
+				B98A7B04212D340C007F5249 /* train */,
 				B994233C21254B1B00620102 /* core */,
 				B91B3E062122D6300045484A /* thirdparty */,
 				B91B3E012122C9EC0045484A /* chars */,
@@ -288,9 +313,38 @@
 			path = EasyPRTests;
 			sourceTree = "<group>";
 		};
+		B98A7B04212D340C007F5249 /* train */ = {
+			isa = PBXGroup;
+			children = (
+				B98A7B05212D34A3007F5249 /* ann_train.cpp */,
+				B98A7B06212D34A3007F5249 /* ann_train.hpp */,
+			);
+			path = train;
+			sourceTree = "<group>";
+		};
+		B98A7B09212D6A1E007F5249 /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				B98A7B0E212D6AA4007F5249 /* kv.cpp */,
+				B98A7B0D212D6A92007F5249 /* kv.h */,
+				B98A7B0A212D6A45007F5249 /* util.h */,
+				B98A7B0B212D6A58007F5249 /* util.cpp */,
+			);
+			path = utils;
+			sourceTree = "<group>";
+		};
+		B98A7B10212D6AF0007F5249 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B98A7B11212D6AF0007F5249 /* libstdc++.6.0.9.tbd */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		B994233C21254B1B00620102 /* core */ = {
 			isa = PBXGroup;
 			children = (
+				B98A7B02212D13C6007F5249 /* core_func.cpp */,
 			);
 			path = core;
 			sourceTree = "<group>";
@@ -412,8 +466,10 @@
 				B93FB9F3210EE5FF00DC1E4D /* LaunchScreen.storyboard in Resources */,
 				B93FB9F0210EE5FF00DC1E4D /* Assets.xcassets in Resources */,
 				B94E23B2211BD96E00E26504 /* plate_judge.jpg in Resources */,
+				B98A7AFB212CFAB1007F5249 /* plate.png in Resources */,
 				E42C978D211B2D1A00712339 /* Assets.xcassets in Resources */,
 				B93FB9EE210EE5FE00DC1E4D /* Main.storyboard in Resources */,
+				B98A7AFD212CFBBF007F5249 /* plate.jpg in Resources */,
 				B93FBA0B210EE63700DC1E4D /* log.md in Resources */,
 				B90FA278211C35500050DE42 /* wA87271.jpg in Resources */,
 				B91B3E1A2122D6300045484A /* AFPL-license.txt in Resources */,
@@ -436,8 +492,10 @@
 			files = (
 				E42C979F211B396300712339 /* MserLocateController.mm in Sources */,
 				E42C9795211B2D1A00712339 /* PlateRecognitionController.mm in Sources */,
+				B98A7B0C212D6A58007F5249 /* util.cpp in Sources */,
 				B91B3E172122D6300045484A /* helper.cpp in Sources */,
 				B91B3E182122D6300045484A /* mser2.cpp in Sources */,
+				B98A7B07212D34A3007F5249 /* ann_train.cpp in Sources */,
 				B91B3E162122D6300045484A /* lbp.cpp in Sources */,
 				B947E6E4211013D1007C8216 /* UIImageCVMatConverter.mm in Sources */,
 				B93FB9EB210EE5FE00DC1E4D /* ViewController.mm in Sources */,
@@ -446,10 +504,12 @@
 				B94E23B0211BD03C00E26504 /* EdgeLocateController.mm in Sources */,
 				E42C9798211B329D00712339 /* ActionItem.m in Sources */,
 				E46199A1211C702A00499C8D /* CommHandle.cpp in Sources */,
+				B98A7B0F212D6AA4007F5249 /* kv.cpp in Sources */,
 				B91B3E1B2122D6300045484A /* xmlParser.cpp in Sources */,
 				B91B3E192122D6300045484A /* erfilter.cpp in Sources */,
 				E42C979C211B360600712339 /* BaseController.mm in Sources */,
 				E42C978E211B2D1A00712339 /* LanelineController.m in Sources */,
+				B98A7B03212D13C6007F5249 /* core_func.cpp in Sources */,
 				B93FB9E8210EE5FE00DC1E4D /* AppDelegate.m in Sources */,
 				E42C9792211B2D1A00712339 /* ShowController.m in Sources */,
 			);
@@ -631,6 +691,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/EasyPR",
 				);
+				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = EasyPR/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -657,6 +718,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/EasyPR",
 				);
+				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = EasyPR/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

@@ -87,7 +87,16 @@ int imageCrop(InputArray src, OutputArray dst, cv::Rect rect)
 
 - (void)handleImage:(cv::Mat)srcImagge
 {
-//    [self xx];
+    
+//    NSString *nsstring=[[NSBundle mainBundle] pathForResource:@"plate" ofType:@"jpg"];
+//    string image_path=[nsstring UTF8String];
+//    Mat plate = imread(image_path, IMREAD_UNCHANGED);
+////    cvtColor(plate, plate, CV_BGR2RGB);
+//    [self.imgs addObject:[UIImageCVMatConverter UIImageFromCVMat:plate]];
+////    cv::Rect roiRect(0,0,17,28);
+////    Mat(plate,roiRect).clone()
+//    [self.imgs addObject:[UIImageCVMatConverter UIImageFromCVMat:plate.colRange(1, 17).clone()]];
+
 //    return;
     Mat rgbImage = srcImagge.clone();
     // HSV空间转换
@@ -368,27 +377,43 @@ void getLBPFeatures(const Mat& image, Mat& features) {
     int startIndex = 0;//记录进入字符区的索引
     int endIndex = 0;//记录进入空白区域的索引
     bool inBlock = false;//是否遍历到了字符区内
-//    for (int i = 0; i < binImg.cols; i++)//cols=width
-//    {
-//        if (!inBlock && projectValArry[i] != 0)//进入字符区
-//        {
-//            inBlock = true;
-//            startIndex = i;
-//        }
-//        else if (projectValArry[i] == 0 && inBlock)//进入空白区
-//        {
-//            endIndex = i;
-//            inBlock = false;
-//            Mat roiImg = binImg(Range(0, binImg.rows), Range(startIndex, endIndex + 1));
-//            roiList.push_back(roiImg);
-//        }
-//    }
+    for (int i = 0; i < binImg.cols; i++)//cols=width
+    {
+        if (!inBlock && projectValArry[i] != 0)//进入字符区
+        {
+            inBlock = true;
+            startIndex = i;
+        }
+        else if (projectValArry[i] == 0 && inBlock)//进入空白区
+        {
+            endIndex = i;
+            inBlock = false;
+            Mat roiImg = binImg(Range(0, binImg.rows), Range(startIndex, endIndex + 1));
+            roiList.push_back(roiImg.clone());
+        }
+    }
     
-    Mat roiImg = binImg.colRange(1,17);//binImg(Range(0, binImg.rows), Range(0, 120));
-    roiList.push_back(roiImg);
+//    NSString *documentPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject;
+//    UIImage *plateImg = [UIImageCVMatConverter UIImageFromCVMat:binImg];
+//    [UIImagePNGRepresentation(plateImg) writeToFile:[documentPath stringByAppendingPathComponent:@"plate.png"] atomically:YES];
+//    [UIImageJPEGRepresentation(plateImg, 1) writeToFile:[documentPath stringByAppendingPathComponent:@"plate.jpg"] atomically:YES];
     
     delete[] projectValArry;
     return roiList;
 }
+
+
+- (void)annCharRecongnise {
+    cv::Ptr<cv::ml::ANN_MLP> ann_;
+    cv:Ptr<cv::ml::ANN_MLP> annChinese_;
+    NSString *nsstring=[[NSBundle mainBundle] pathForResource:@"model/ann" ofType:@"xml"];
+    string path=[nsstring UTF8String];
+    ann_ = ml::ANN_MLP::load<ml::ANN_MLP>(path);
+    NSString *cnsstring=[[NSBundle mainBundle] pathForResource:@"model/ann" ofType:@"xml"];
+    string cpath=[cnsstring UTF8String];
+    annChinese_ = ml::ANN_MLP::load<ml::ANN_MLP>(cpath);
+    Mat features;
+}
+
 
 @end
