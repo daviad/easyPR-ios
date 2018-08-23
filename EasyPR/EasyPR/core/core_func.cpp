@@ -449,24 +449,24 @@ float countOfBigValue(Mat &mat, int iValue) {
   }
 }
 
-Mat ProjectedHistogram(Mat img, int t) {
-  int sz = (t) ? img.rows : img.cols;
-  Mat mhist = Mat::zeros(1, sz, CV_32F);
-
-  for (int j = 0; j < sz; j++) {
-    Mat data = (t) ? img.row(j) : img.col(j);
-
-    mhist.at<float>(j) = countOfBigValue(data, 20);
-  }
-
-  // Normalize histogram
-  double min, max;
-  minMaxLoc(mhist, &min, &max);
-
-  if (max > 0)
-    mhist.convertTo(mhist, -1, 1.0f / max, 0);
-
-  return mhist;
+Mat ProjectedHistogram(Mat img, int t, int threshold) {
+    int sz = (t) ? img.rows : img.cols;
+    Mat mhist = Mat::zeros(1, sz, CV_32F);
+    
+    for (int j = 0; j < sz; j++) {
+        Mat data = (t) ? img.row(j) : img.col(j);
+        
+        mhist.at<float>(j) = countOfBigValue(data, threshold);
+    }
+    
+    // Normalize histogram
+    double min, max;
+    minMaxLoc(mhist, &min, &max);
+    
+    if (max > 0)
+        mhist.convertTo(mhist, -1, 1.0f / max, 0);
+    
+    return mhist;
 }
 
 Mat preprocessChar(Mat in, int char_size) {

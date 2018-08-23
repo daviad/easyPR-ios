@@ -8,6 +8,9 @@
 
 #include "ann_train.hpp"
 #include "config.h"
+#include "util.h"
+#include "core_func.h"
+#include "feature.hpp"
 
 namespace easypr {
     AnnTrain::AnnTrain(const char* chars_folder, const char* xml)
@@ -48,7 +51,7 @@ namespace easypr {
         ann_->setBackpropWeightScale(0.1);
         ann_->setBackpropMomentumScale(0.1);
         
-        cv::Ptr<cv::ml::TrainData> traindata;
+        cv::Ptr<cv::ml::TrainData> traindata = sdata(350);
         ann_->train(traindata);
         ann_->save(ann_xml_);
     }
@@ -70,9 +73,32 @@ namespace easypr {
             sprintf(sub_folder, "%s/%s",chars_folder_,char_key);
             fprintf(stdout, ">> Testing characters %s in %s \n", char_key, sub_folder);
             
+            auto chars_files = Utils::getFiles(sub_folder);
+//            size_t char_size = chars_files.size();
             
+            std::vector<cv::Mat> matVec;
+            matVec.reserve(number_for_count);
+            for (auto file : chars_files) {
+                auto img = cv::imread(file,0);
+                matVec.push_back(img);
+            }
+            
+            for (auto img : matVec) {
+                auto fps = charFeatures2(img, kPredictSize);
+                
+                samples.push_back(fps);
+                labels.push_back(i);
+            }
         }
-        cv::Ptr<cv::ml::TrainData> aa;
-        return aa;
+        
+        cv::Mat samples_;
+        samples.convertTo(samples_, CV_32F);
+        cv::Mat train_classes = cv::Mat::zeros((int)labels.size(),classNumber, CV_32F);
+        
+        for (int i = 0; i < train_classes.rows; ++i) {
+            train_classes.at<float>(i,labels[i]) = 1.f;
+        }
+        return cv::ml::TrainData::create(samples_, cv::ml::SampleTypes::ROW_SAMPLE,
+                                         train_classes);;
     }
 }

@@ -28,7 +28,7 @@
 		B93FB9F0210EE5FF00DC1E4D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B93FB9EF210EE5FF00DC1E4D /* Assets.xcassets */; };
 		B93FB9F3210EE5FF00DC1E4D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B93FB9F1210EE5FF00DC1E4D /* LaunchScreen.storyboard */; };
 		B93FB9F6210EE5FF00DC1E4D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B93FB9F5210EE5FF00DC1E4D /* main.m */; };
-		B93FBA00210EE5FF00DC1E4D /* EasyPRTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B93FB9FF210EE5FF00DC1E4D /* EasyPRTests.m */; };
+		B93FBA00210EE5FF00DC1E4D /* EasyPRTests.mm in Sources */ = {isa = PBXBuildFile; fileRef = B93FB9FF210EE5FF00DC1E4D /* EasyPRTests.mm */; };
 		B93FBA0B210EE63700DC1E4D /* log.md in Resources */ = {isa = PBXBuildFile; fileRef = B93FBA0A210EE63700DC1E4D /* log.md */; };
 		B947E6E4211013D1007C8216 /* UIImageCVMatConverter.mm in Sources */ = {isa = PBXBuildFile; fileRef = B947E6E2211013D1007C8216 /* UIImageCVMatConverter.mm */; };
 		B947E6E6211025D2007C8216 /* test.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B947E6E5211025D2007C8216 /* test.jpg */; };
@@ -42,6 +42,10 @@
 		B98A7B0F212D6AA4007F5249 /* kv.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B98A7B0E212D6AA4007F5249 /* kv.cpp */; };
 		B98A7B12212D6AF0007F5249 /* libstdc++.6.0.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = B98A7B11212D6AF0007F5249 /* libstdc++.6.0.9.tbd */; };
 		B98C43B9211D20C200B8409D /* model in Resources */ = {isa = PBXBuildFile; fileRef = B98C43B8211D20C200B8409D /* model */; };
+		B98E434E212E48280075791D /* feature.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B98E434C212E48280075791D /* feature.cpp */; };
+		B98E434F212EAE3B0075791D /* ann_train.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B98A7B05212D34A3007F5249 /* ann_train.cpp */; };
+		B98E4351212EB0CF0075791D /* train in Resources */ = {isa = PBXBuildFile; fileRef = B98E4350212EB0CF0075791D /* train */; };
+		B98E4352212EB0CF0075791D /* train in Resources */ = {isa = PBXBuildFile; fileRef = B98E4350212EB0CF0075791D /* train */; };
 		E42C978D211B2D1A00712339 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E42C977D211B2D1900712339 /* Assets.xcassets */; };
 		E42C978E211B2D1A00712339 /* LanelineController.m in Sources */ = {isa = PBXBuildFile; fileRef = E42C977E211B2D1900712339 /* LanelineController.m */; };
 		E42C978F211B2D1A00712339 /* test2.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = E42C9780211B2D1A00712339 /* test2.jpeg */; };
@@ -99,7 +103,7 @@
 		B93FB9F4210EE5FF00DC1E4D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B93FB9F5210EE5FF00DC1E4D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B93FB9FB210EE5FF00DC1E4D /* EasyPRTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EasyPRTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		B93FB9FF210EE5FF00DC1E4D /* EasyPRTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EasyPRTests.m; sourceTree = "<group>"; };
+		B93FB9FF210EE5FF00DC1E4D /* EasyPRTests.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = EasyPRTests.mm; sourceTree = "<group>"; };
 		B93FBA01210EE5FF00DC1E4D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B93FBA0A210EE63700DC1E4D /* log.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = log.md; sourceTree = "<group>"; };
 		B947E6E2211013D1007C8216 /* UIImageCVMatConverter.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = UIImageCVMatConverter.mm; sourceTree = "<group>"; };
@@ -120,6 +124,10 @@
 		B98A7B0E212D6AA4007F5249 /* kv.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = kv.cpp; sourceTree = "<group>"; };
 		B98A7B11212D6AF0007F5249 /* libstdc++.6.0.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.6.0.9.tbd"; path = "usr/lib/libstdc++.6.0.9.tbd"; sourceTree = SDKROOT; };
 		B98C43B8211D20C200B8409D /* model */ = {isa = PBXFileReference; lastKnownFileType = folder; name = model; path = "../../EasyPR-iOS-master/resources/model"; sourceTree = "<group>"; };
+		B98E434B212E451F0075791D /* core_func.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = core_func.h; sourceTree = "<group>"; };
+		B98E434C212E48280075791D /* feature.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = feature.cpp; sourceTree = "<group>"; };
+		B98E434D212E48280075791D /* feature.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = feature.hpp; sourceTree = "<group>"; };
+		B98E4350212EB0CF0075791D /* train */ = {isa = PBXFileReference; lastKnownFileType = folder; name = train; path = "../../EasyPR-iOS-master/resources/train"; sourceTree = "<group>"; };
 		E42C977D211B2D1900712339 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E42C977E211B2D1900712339 /* LanelineController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LanelineController.m; sourceTree = "<group>"; };
 		E42C977F211B2D1900712339 /* ContourTestController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContourTestController.h; sourceTree = "<group>"; };
@@ -262,6 +270,7 @@
 		B93FB9E5210EE5FE00DC1E4D /* EasyPR */ = {
 			isa = PBXGroup;
 			children = (
+				B98E4350212EB0CF0075791D /* train */,
 				B98A7B09212D6A1E007F5249 /* utils */,
 				B98A7B08212D38EA007F5249 /* config.h */,
 				B98A7B04212D340C007F5249 /* train */,
@@ -307,7 +316,7 @@
 		B93FB9FE210EE5FF00DC1E4D /* EasyPRTests */ = {
 			isa = PBXGroup;
 			children = (
-				B93FB9FF210EE5FF00DC1E4D /* EasyPRTests.m */,
+				B93FB9FF210EE5FF00DC1E4D /* EasyPRTests.mm */,
 				B93FBA01210EE5FF00DC1E4D /* Info.plist */,
 			);
 			path = EasyPRTests;
@@ -344,7 +353,10 @@
 		B994233C21254B1B00620102 /* core */ = {
 			isa = PBXGroup;
 			children = (
+				B98E434B212E451F0075791D /* core_func.h */,
 				B98A7B02212D13C6007F5249 /* core_func.cpp */,
+				B98E434C212E48280075791D /* feature.cpp */,
+				B98E434D212E48280075791D /* feature.hpp */,
 			);
 			path = core;
 			sourceTree = "<group>";
@@ -453,6 +465,7 @@
 				E42C9793211B2D1A00712339 /* LaunchScreen.storyboard in Resources */,
 				B90FA277211C35500050DE42 /* car4.jpg in Resources */,
 				B90FA279211C35500050DE42 /* car5.jpg in Resources */,
+				B98E4351212EB0CF0075791D /* train in Resources */,
 				B90FA275211C35500050DE42 /* cAA662F.jpg in Resources */,
 				B90FA270211C35500050DE42 /* car3.jpg in Resources */,
 				B90FA271211C35500050DE42 /* wATH859.jpg in Resources */,
@@ -480,6 +493,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B98E4352212EB0CF0075791D /* train in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -509,6 +523,7 @@
 				B91B3E192122D6300045484A /* erfilter.cpp in Sources */,
 				E42C979C211B360600712339 /* BaseController.mm in Sources */,
 				E42C978E211B2D1A00712339 /* LanelineController.m in Sources */,
+				B98E434E212E48280075791D /* feature.cpp in Sources */,
 				B98A7B03212D13C6007F5249 /* core_func.cpp in Sources */,
 				B93FB9E8210EE5FE00DC1E4D /* AppDelegate.m in Sources */,
 				E42C9792211B2D1A00712339 /* ShowController.m in Sources */,
@@ -519,7 +534,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B93FBA00210EE5FF00DC1E4D /* EasyPRTests.m in Sources */,
+				B98E434F212EAE3B0075791D /* ann_train.cpp in Sources */,
+				B93FBA00210EE5FF00DC1E4D /* EasyPRTests.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
