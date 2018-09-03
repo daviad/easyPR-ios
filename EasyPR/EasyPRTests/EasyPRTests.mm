@@ -28,8 +28,10 @@
 - (void)testExample {
     // This is an example of a functional test case.
     // Use XCTAssert and related functions to verify your tests produce the correct results.
-   easypr::AnnTrain train = easypr::AnnTrain("aa","bb");
-    train.train();
+   easypr::AnnTrain train = easypr::AnnTrain("/Users/dxw/Desktop/github/MLDemo/easyPR-ios/EasyPR-iOS-master/resources/train/ann","/Users/dxw/Desktop/github/MLDemo/easyPR-ios/EasyPR-iOS-master/resources/train/ann1.xml");
+//    train.train();
+    
+    train.test("/Users/dxw/Desktop/github/MLDemo/easyPR-ios/EasyPR-iOS-master/resources/train/ann/1/9-5.jpg");
 }
 
 - (void)testPerformanceExample {

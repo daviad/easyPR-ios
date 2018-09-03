@@ -11,20 +11,23 @@
 
 #include <stdio.h>
 #include <opencv2/opencv.hpp>
+#include "kv.h"
 namespace easypr {
     class AnnTrain {
     public:
         AnnTrain(const char* chars_folder, const char* xml);
         void train();
-        void test();
-        
+        void test(std::string path);
+        std::string predict(cv::Mat img);
     private:
         cv::Ptr<cv::ml::ANN_MLP> ann_;
         const char* ann_xml_;
         const char* chars_folder_;
         int type;
+        std::shared_ptr<Kv> kv_;
         
         cv::Ptr<cv::ml::TrainData> sdata(size_t number_for_count);
+        std::pair<std::string, std::string> identify(cv::Mat input);
     };
 }
 #endif /* ann_train_hpp */

@@ -220,6 +220,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B91239D1213391F4001BD379 /* train */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = train;
+			sourceTree = "<group>";
+		};
 		B947E6CD21100D76007C8216 = {
 			isa = PBXGroup;
 			children = (
@@ -240,6 +247,7 @@
 		B947E6D821100D76007C8216 /* OpencvLearn */ = {
 			isa = PBXGroup;
 			children = (
+				B91239D1213391F4001BD379 /* train */,
 				B98E4414212EB69E0075791D /* wATH859.jpg */,
 				B947E6D921100D76007C8216 /* main.mm */,
 			);

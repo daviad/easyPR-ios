@@ -15,6 +15,7 @@
 		B90FA277211C35500050DE42 /* car4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B90FA26C211C35500050DE42 /* car4.jpg */; };
 		B90FA278211C35500050DE42 /* wA87271.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B90FA26D211C35500050DE42 /* wA87271.jpg */; };
 		B90FA279211C35500050DE42 /* car5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B90FA26E211C35500050DE42 /* car5.jpg */; };
+		B91239D52133E237001BD379 /* tfTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B91239D32133E237001BD379 /* tfTest.cpp */; };
 		B91B3E052122D3140045484A /* chars_segment.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B91B3E042122D3140045484A /* chars_segment.jpg */; };
 		B91B3E162122D6300045484A /* lbp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B91B3E082122D6300045484A /* lbp.cpp */; };
 		B91B3E172122D6300045484A /* helper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B91B3E092122D6300045484A /* helper.cpp */; };
@@ -80,6 +81,8 @@
 		B90FA26C211C35500050DE42 /* car4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = car4.jpg; sourceTree = "<group>"; };
 		B90FA26D211C35500050DE42 /* wA87271.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = wA87271.jpg; sourceTree = "<group>"; };
 		B90FA26E211C35500050DE42 /* car5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = car5.jpg; sourceTree = "<group>"; };
+		B91239D32133E237001BD379 /* tfTest.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = tfTest.cpp; sourceTree = "<group>"; };
+		B91239D42133E237001BD379 /* tfTest.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = tfTest.hpp; sourceTree = "<group>"; };
 		B91B3E042122D3140045484A /* chars_segment.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = chars_segment.jpg; path = "../../../EasyPR-iOS-master/resources/image/chars_segment.jpg"; sourceTree = "<group>"; };
 		B91B3E082122D6300045484A /* lbp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = lbp.cpp; sourceTree = "<group>"; };
 		B91B3E092122D6300045484A /* helper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = helper.cpp; sourceTree = "<group>"; };
@@ -190,6 +193,15 @@
 			path = images;
 			sourceTree = "<group>";
 		};
+		B91239D22133E207001BD379 /* tensorflow */ = {
+			isa = PBXGroup;
+			children = (
+				B91239D32133E237001BD379 /* tfTest.cpp */,
+				B91239D42133E237001BD379 /* tfTest.hpp */,
+			);
+			path = tensorflow;
+			sourceTree = "<group>";
+		};
 		B91B3E012122C9EC0045484A /* chars */ = {
 			isa = PBXGroup;
 			children = (
@@ -270,6 +282,7 @@
 		B93FB9E5210EE5FE00DC1E4D /* EasyPR */ = {
 			isa = PBXGroup;
 			children = (
+				B91239D22133E207001BD379 /* tensorflow */,
 				B98E4350212EB0CF0075791D /* train */,
 				B98A7B09212D6A1E007F5249 /* utils */,
 				B98A7B08212D38EA007F5249 /* config.h */,
@@ -509,6 +522,7 @@
 				B98A7B0C212D6A58007F5249 /* util.cpp in Sources */,
 				B91B3E172122D6300045484A /* helper.cpp in Sources */,
 				B91B3E182122D6300045484A /* mser2.cpp in Sources */,
+				B91239D52133E237001BD379 /* tfTest.cpp in Sources */,
 				B98A7B07212D34A3007F5249 /* ann_train.cpp in Sources */,
 				B91B3E162122D6300045484A /* lbp.cpp in Sources */,
 				B947E6E4211013D1007C8216 /* UIImageCVMatConverter.mm in Sources */,
@@ -700,6 +714,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6D7J43H33A;
 				ENABLE_BITCODE = NO;
@@ -715,6 +730,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = dxw.test.EasyPR;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "EasyPR/locate/EasyPR-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -727,6 +743,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6D7J43H33A;
 				ENABLE_BITCODE = NO;
@@ -742,6 +759,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = dxw.test.EasyPR;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "EasyPR/locate/EasyPR-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

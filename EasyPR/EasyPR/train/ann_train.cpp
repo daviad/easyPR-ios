@@ -16,6 +16,9 @@ namespace easypr {
     AnnTrain::AnnTrain(const char* chars_folder, const char* xml)
     : chars_folder_(chars_folder), ann_xml_(xml) {
         ann_ = cv::ml::ANN_MLP::create();
+        type = 0;
+        kv_ = std::shared_ptr<Kv>(new Kv);
+        kv_->load("/Users/dxw/Desktop/github/MLDemo/easyPR-ios/EasyPR-iOS-master/etc/province_mapping");
     }
     
     void AnnTrain::train(){
@@ -100,5 +103,54 @@ namespace easypr {
         }
         return cv::ml::TrainData::create(samples_, cv::ml::SampleTypes::ROW_SAMPLE,
                                          train_classes);;
+    }
+    
+    void AnnTrain::test(std::string path){
+        
+        ann_ = ml::ANN_MLP::load<ml::ANN_MLP>(ann_xml_);
+        
+       int classNumber = 0;
+       if (type == 0) classNumber = kCharsTotalNumber;
+       if (type == 1) classNumber = kChineseNumber;
+       
+       auto img = cv::imread(path,0);
+        identify(img);
+    }
+    std::pair<std::string, std::string> AnnTrain::identify(cv::Mat input) {
+        cv::Mat feature = charFeatures2(input, kPredictSize);
+        
+        float maxVal = -2;
+        int result = 0;
+        
+        cv::Mat output(1,kCharsTotalNumber, CV_32FC1);
+        ann_->predict(feature.clone(), output);
+        for (int j = 0; j < kCharsTotalNumber; j++) {
+            float val = output.at<float>(j);
+            if (val > maxVal) {
+                maxVal = val;
+                result = j;
+            }
+        }
+        
+        auto index = result;
+        if (index < kCharactersNumber) {
+            return std::make_pair(kChars[index], kChars[index]);
+        } else {
+            const char* key = kChars[index];
+            std::string s = key;
+//            std::cout << s << std::endl;
+            std::string province = kv_->get(s);
+            return std::make_pair(s, province);
+        }
+    }
+    
+    std::string AnnTrain::predict(cv::Mat img) {
+        ann_ = ml::ANN_MLP::load<ml::ANN_MLP>(ann_xml_);
+        int classNumber = 0;
+        if (type == 0) classNumber = kCharsTotalNumber;
+        if (type == 1) classNumber = kChineseNumber;
+        
+        std::pair<std::string, std::string> p =identify(img);
+        return p.second;
     }
 }

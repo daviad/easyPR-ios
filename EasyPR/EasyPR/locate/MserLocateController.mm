@@ -10,6 +10,7 @@
 #import "MserLocateController.h"
 
 #import "lbp.hpp"
+#import "ann_train.hpp"
 
 using namespace cv;
 using namespace std;
@@ -261,12 +262,23 @@ void getLBPFeatures(const Mat& image, Mat& features) {
     [self.imgs addObject:[UIImageCVMatConverter UIImageFromCVMat:roi]];
     
     roi = [self clearNoisePoint:roi];
+    cv::resize(roi, roi, cv::Size(136,36));
 //    垂直投影
     vector<Mat> roiList = [self verticalProjectionMat:roi];
     for (int i = 0;i < roiList.size();i++) {
         Mat c = roiList[i];
         [self.imgs addObject:[UIImageCVMatConverter UIImageFromCVMat:c]];
     }
+    
+//    vector<Mat> testList;
+//    testList.push_back(imread("/Users/dxw/Desktop/github/MLDemo/easyPR-ios/EasyPR-iOS-master/resources/train/ann/0/15-3.jpg",0));
+//     testList.push_back(imread("/Users/dxw/Desktop/github/MLDemo/easyPR-ios/EasyPR-iOS-master/resources/train/ann/7/13-3.jpg",0));
+//     testList.push_back(imread("/Users/dxw/Desktop/github/MLDemo/easyPR-ios/EasyPR-iOS-master/resources/train/ann/B/48-7.jpg",0));
+//     testList.push_back(imread("/Users/dxw/Desktop/github/MLDemo/easyPR-ios/EasyPR-iOS-master/resources/train/ann/A/35-5.jpg",0));
+//     testList.push_back(imread("/Users/dxw/Desktop/github/MLDemo/easyPR-ios/EasyPR-iOS-master/resources/train/ann/A/45-6.jpg",0));
+//     testList.push_back(imread("/Users/dxw/Desktop/github/MLDemo/easyPR-ios/EasyPR-iOS-master/resources/train/ann/zh_su/20-0-3.jpg",0));
+//    testList.push_back(imread("/Users/dxw/Desktop/github/MLDemo/easyPR-ios/EasyPR-iOS-master/resources/train/ann/zh_shan/debug_chineseMat467.jpg",0));
+    [self annCharRecongnise:roiList];
 }
 
 - (cv::Mat)clearNoisePoint:(cv::Mat)plate {
@@ -403,16 +415,20 @@ void getLBPFeatures(const Mat& image, Mat& features) {
 }
 
 
-- (void)annCharRecongnise {
-    cv::Ptr<cv::ml::ANN_MLP> ann_;
-    cv:Ptr<cv::ml::ANN_MLP> annChinese_;
-    NSString *nsstring=[[NSBundle mainBundle] pathForResource:@"model/ann" ofType:@"xml"];
-    string path=[nsstring UTF8String];
-    ann_ = ml::ANN_MLP::load<ml::ANN_MLP>(path);
-    NSString *cnsstring=[[NSBundle mainBundle] pathForResource:@"model/ann" ofType:@"xml"];
-    string cpath=[cnsstring UTF8String];
-    annChinese_ = ml::ANN_MLP::load<ml::ANN_MLP>(cpath);
-    Mat features;
+- (void)annCharRecongnise:(vector<Mat>)chars {
+
+//    NSString *nsstring=[[NSBundle mainBundle] pathForResource:@"model/ann" ofType:@"xml"];
+//    string path=[nsstring UTF8String];
+    easypr::AnnTrain train = easypr::AnnTrain("/Users/dxw/Desktop/github/MLDemo/easyPR-ios/EasyPR-iOS-master/resources/train/ann","/Users/dxw/Desktop/github/MLDemo/easyPR-ios/EasyPR-iOS-master/resources/train/ann1.xml");
+//     easypr::AnnTrain train = easypr::AnnTrain("/Users/dxw/Desktop/github/MLDemo/easyPR-ios/EasyPR-iOS-master/resources/train/ann","/Users/dxw/Desktop/github/MLDemo/easyPR-ios/EasyPR-iOS-master/resources/model/ann.xml");
+    
+    for (int i = 0; i < chars.size(); i++) {
+       auto img = chars[i];
+        cv::resize(img, img, cv::Size(20,20));
+
+       std::string ch = train.predict(img);
+        cout << ch << endl;
+    }
 }
 
 
