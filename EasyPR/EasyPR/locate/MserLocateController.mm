@@ -48,12 +48,15 @@ int imageCrop(InputArray src, OutputArray dst, cv::Rect rect)
 
 - (void)xx {
     Mat c = Mat::zeros(3, 5, CV_8UC1);
+    Mat d = Mat::ones(3, 3, CV_8UC1);
+    
 //    //对a的第一列进行赋值
 //    a.col(0) = c.col(0);
 //    //将c的1-5列赋值给a
-//    a.colRange(1, 6) = c;
-       cout<<c<<endl;
-    c.col(0) = 1;
+    d.copyTo(c.colRange(1, 4));
+//    c.colRange(1, 4) = d;
+       cout<<d<<endl;
+//    c.col(0) = 1;
     cout<<c<<endl;
     Mat dst(1,5,CV_8UC1,cv::Scalar(0));
     cout<<"dist"<<dst<<endl;
@@ -88,6 +91,8 @@ int imageCrop(InputArray src, OutputArray dst, cv::Rect rect)
 
 - (void)handleImage:(cv::Mat)srcImagge
 {
+//    [self xx];
+//    return;
     
 //    NSString *nsstring=[[NSBundle mainBundle] pathForResource:@"plate" ofType:@"jpg"];
 //    string image_path=[nsstring UTF8String];
@@ -267,9 +272,17 @@ void getLBPFeatures(const Mat& image, Mat& features) {
     vector<Mat> roiList = [self verticalProjectionMat:roi];
     for (int i = 0;i < roiList.size();i++) {
         Mat c = roiList[i];
-        Mat c1 = cv::Mat(c.rows, c.rows, CV_8UC1,cv::Scalar(255));
-//        cl.rows
         [self.imgs addObject:[UIImageCVMatConverter UIImageFromCVMat:c]];
+    }
+    vector<Mat> normalizeList;
+    for (int i = 0;i < roiList.size();i++) {
+        Mat c = roiList[i];
+        Mat c1 = cv::Mat(c.rows, c.rows, CV_8UC1,cv::Scalar(0));
+        int cap = (c.rows - c.cols)/2;
+        c.copyTo(c1.colRange(cap,cap+c.cols));
+        normalizeList.push_back(c1);
+        cv::resize(c1, c1, cv::Size(20,20));
+        [self.imgs addObject:[UIImageCVMatConverter UIImageFromCVMat:c1]];
     }
     
 //    vector<Mat> testList;
@@ -280,7 +293,7 @@ void getLBPFeatures(const Mat& image, Mat& features) {
 //     testList.push_back(imread("/Users/dxw/Desktop/github/MLDemo/easyPR-ios/EasyPR-iOS-master/resources/train/ann/A/45-6.jpg",0));
 //     testList.push_back(imread("/Users/dxw/Desktop/github/MLDemo/easyPR-ios/EasyPR-iOS-master/resources/train/ann/zh_su/20-0-3.jpg",0));
 //    testList.push_back(imread("/Users/dxw/Desktop/github/MLDemo/easyPR-ios/EasyPR-iOS-master/resources/train/ann/zh_shan/debug_chineseMat467.jpg",0));
-    [self annCharRecongnise:roiList];
+    [self annCharRecongnise:normalizeList];
 }
 
 - (cv::Mat)clearNoisePoint:(cv::Mat)plate {
@@ -421,12 +434,12 @@ void getLBPFeatures(const Mat& image, Mat& features) {
 
 //    NSString *nsstring=[[NSBundle mainBundle] pathForResource:@"model/ann" ofType:@"xml"];
 //    string path=[nsstring UTF8String];
-    easypr::AnnTrain train = easypr::AnnTrain("/Users/dxw/Desktop/github/MLDemo/easyPR-ios/EasyPR-iOS-master/resources/train/ann","/Users/dxw/Desktop/github/MLDemo/easyPR-ios/EasyPR-iOS-master/resources/train/ann1.xml");
+    easypr::AnnTrain train = easypr::AnnTrain("/Users/dingxiuwei/Desktop/git/easyPR-ios/EasyPR-iOS-master/resources/train/ann","/Users/dingxiuwei/Desktop/git/easyPR-ios/EasyPR-iOS-master/resources/train/ann1.xml");
 //     easypr::AnnTrain train = easypr::AnnTrain("/Users/dxw/Desktop/github/MLDemo/easyPR-ios/EasyPR-iOS-master/resources/train/ann","/Users/dxw/Desktop/github/MLDemo/easyPR-ios/EasyPR-iOS-master/resources/model/ann.xml");
     
     for (int i = 0; i < chars.size(); i++) {
        auto img = chars[i];
-        cv::resize(img, img, cv::Size(20,20));
+        
 
        std::string ch = train.predict(img);
         cout << ch << endl;

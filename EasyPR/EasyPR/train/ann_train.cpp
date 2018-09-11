@@ -18,7 +18,7 @@ namespace easypr {
         ann_ = cv::ml::ANN_MLP::create();
         type = 0;
         kv_ = std::shared_ptr<Kv>(new Kv);
-        kv_->load("/Users/dxw/Desktop/github/MLDemo/easyPR-ios/EasyPR-iOS-master/etc/province_mapping");
+        kv_->load("/Users/dingxiuwei/Desktop/git/easyPR-ios/EasyPR-iOS-master/etc/province_mapping");
     }
     
     void AnnTrain::train(){
