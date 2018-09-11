@@ -325,6 +325,16 @@ CPlateRecognize pr;
     if (result != 0)
         cout << "result:" << result << endl;
     [SVProgressHUD dismiss];
+    
+    CPlate plate = plateVec[0];
+    plateimage = [UIImageCVMatConverter UIImageFromCVMat:plate.getPlateMat()];
+    UIImage *c = [UIImageCVMatConverter UIImageFromCVMat:plate.getReutCharVec()[0].getCharacterMat()];
+    UIImage *c1 = [UIImageCVMatConverter UIImageFromCVMat:plate.getReutCharVec()[1].getCharacterMat()];
+    UIImage *c2 = [UIImageCVMatConverter UIImageFromCVMat:plate.getReutCharVec()[2].getCharacterMat()];
+    UIImage *c3 = [UIImageCVMatConverter UIImageFromCVMat:plate.getReutCharVec()[3].getCharacterMat()];
+    UIImage *c4 = [UIImageCVMatConverter UIImageFromCVMat:plate.getReutCharVec()[4].getCharacterMat()];
+
+    
     return plateimage;
 }
 

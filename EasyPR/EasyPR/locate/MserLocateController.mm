@@ -262,11 +262,13 @@ void getLBPFeatures(const Mat& image, Mat& features) {
     [self.imgs addObject:[UIImageCVMatConverter UIImageFromCVMat:roi]];
     
     roi = [self clearNoisePoint:roi];
-    cv::resize(roi, roi, cv::Size(136,36));
+    cv::resize(roi, roi, cv::Size(136,(136.8*28.0)/141.0));
 //    垂直投影
     vector<Mat> roiList = [self verticalProjectionMat:roi];
     for (int i = 0;i < roiList.size();i++) {
         Mat c = roiList[i];
+        Mat c1 = cv::Mat(c.rows, c.rows, CV_8UC1,cv::Scalar(255));
+//        cl.rows
         [self.imgs addObject:[UIImageCVMatConverter UIImageFromCVMat:c]];
     }
     
@@ -429,6 +431,20 @@ void getLBPFeatures(const Mat& image, Mat& features) {
        std::string ch = train.predict(img);
         cout << ch << endl;
     }
+    
+//    vector<Mat> cl;
+//    cl.push_back(cv::imread("/Users/dxw/Desktop/YUV/1.png",0));
+//    cl.push_back(cv::imread("/Users/dxw/Desktop/YUV/2.png",0));
+//    cl.push_back(cv::imread("/Users/dxw/Desktop/YUV/3.jpg",0));
+//    cl.push_back(cv::imread("/Users/dxw/Desktop/YUV/4.jpg",0));
+//    cl.push_back(cv::imread("/Users/dxw/Desktop/YUV/5.jpg",0));
+//        for (int i = 0; i < cl.size(); i++) {
+//           auto img = cl[i];
+//            cv::resize(img, img, cv::Size(20,20));
+//
+//           std::string ch = train.predict(img);
+//            cout << ch << endl;
+//        }
 }
 
 

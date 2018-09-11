@@ -130,7 +130,7 @@ namespace easypr {
       return (m_score < plate.m_score);
     }
 
-  private:
+//  private:
     //! plate mat
     Mat m_plateMat;
 
@@ -161,11 +161,12 @@ namespace easypr {
 
     cv::Rect m_mergeCharRect;
     cv::Rect m_maxCharRect;
-
     std::vector<CCharacter> m_mserCharVec;
     std::vector<CCharacter> m_slwdCharVec;
 
     std::vector<CCharacter> m_ostuCharVec;
+      
+    inline std::vector<CCharacter> getReutCharVec() const { return m_reutCharVec; }
     std::vector<CCharacter> m_reutCharVec;
 
     int m_charCount;
