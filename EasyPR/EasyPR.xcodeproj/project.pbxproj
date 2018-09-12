@@ -38,15 +38,16 @@
 		B98A7AFB212CFAB1007F5249 /* plate.png in Resources */ = {isa = PBXBuildFile; fileRef = B98A7AFA212CFAB1007F5249 /* plate.png */; };
 		B98A7AFD212CFBBF007F5249 /* plate.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B98A7AFC212CFBBF007F5249 /* plate.jpg */; };
 		B98A7B03212D13C6007F5249 /* core_func.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B98A7B02212D13C6007F5249 /* core_func.cpp */; };
-		B98A7B07212D34A3007F5249 /* ann_train.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B98A7B05212D34A3007F5249 /* ann_train.cpp */; };
+		B98A7B07212D34A3007F5249 /* ann_train.mm in Sources */ = {isa = PBXBuildFile; fileRef = B98A7B05212D34A3007F5249 /* ann_train.mm */; };
 		B98A7B0C212D6A58007F5249 /* util.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B98A7B0B212D6A58007F5249 /* util.cpp */; };
 		B98A7B0F212D6AA4007F5249 /* kv.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B98A7B0E212D6AA4007F5249 /* kv.cpp */; };
 		B98A7B12212D6AF0007F5249 /* libstdc++.6.0.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = B98A7B11212D6AF0007F5249 /* libstdc++.6.0.9.tbd */; };
 		B98C43B9211D20C200B8409D /* model in Resources */ = {isa = PBXBuildFile; fileRef = B98C43B8211D20C200B8409D /* model */; };
 		B98E434E212E48280075791D /* feature.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B98E434C212E48280075791D /* feature.cpp */; };
-		B98E434F212EAE3B0075791D /* ann_train.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B98A7B05212D34A3007F5249 /* ann_train.cpp */; };
+		B98E434F212EAE3B0075791D /* ann_train.mm in Sources */ = {isa = PBXBuildFile; fileRef = B98A7B05212D34A3007F5249 /* ann_train.mm */; };
 		B98E4351212EB0CF0075791D /* train in Resources */ = {isa = PBXBuildFile; fileRef = B98E4350212EB0CF0075791D /* train */; };
 		B98E4352212EB0CF0075791D /* train in Resources */ = {isa = PBXBuildFile; fileRef = B98E4350212EB0CF0075791D /* train */; };
+		B9954D3A2148B2F300D1B2C7 /* province_mapping in Resources */ = {isa = PBXBuildFile; fileRef = B9954D392148B2F200D1B2C7 /* province_mapping */; };
 		E42C978D211B2D1A00712339 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E42C977D211B2D1900712339 /* Assets.xcassets */; };
 		E42C978E211B2D1A00712339 /* LanelineController.m in Sources */ = {isa = PBXBuildFile; fileRef = E42C977E211B2D1900712339 /* LanelineController.m */; };
 		E42C978F211B2D1A00712339 /* test2.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = E42C9780211B2D1A00712339 /* test2.jpeg */; };
@@ -118,7 +119,7 @@
 		B98A7AFA212CFAB1007F5249 /* plate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plate.png; sourceTree = "<group>"; };
 		B98A7AFC212CFBBF007F5249 /* plate.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = plate.jpg; sourceTree = "<group>"; };
 		B98A7B02212D13C6007F5249 /* core_func.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = core_func.cpp; sourceTree = "<group>"; };
-		B98A7B05212D34A3007F5249 /* ann_train.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ann_train.cpp; sourceTree = "<group>"; };
+		B98A7B05212D34A3007F5249 /* ann_train.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ann_train.mm; sourceTree = "<group>"; };
 		B98A7B06212D34A3007F5249 /* ann_train.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ann_train.hpp; sourceTree = "<group>"; };
 		B98A7B08212D38EA007F5249 /* config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = config.h; sourceTree = "<group>"; };
 		B98A7B0A212D6A45007F5249 /* util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = util.h; sourceTree = "<group>"; };
@@ -131,6 +132,7 @@
 		B98E434C212E48280075791D /* feature.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = feature.cpp; sourceTree = "<group>"; };
 		B98E434D212E48280075791D /* feature.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = feature.hpp; sourceTree = "<group>"; };
 		B98E4350212EB0CF0075791D /* train */ = {isa = PBXFileReference; lastKnownFileType = folder; name = train; path = "../../EasyPR-iOS-master/resources/train"; sourceTree = "<group>"; };
+		B9954D392148B2F200D1B2C7 /* province_mapping */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = province_mapping; path = "../../EasyPR-iOS-master/etc/province_mapping"; sourceTree = "<group>"; };
 		E42C977D211B2D1900712339 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E42C977E211B2D1900712339 /* LanelineController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LanelineController.m; sourceTree = "<group>"; };
 		E42C977F211B2D1900712339 /* ContourTestController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContourTestController.h; sourceTree = "<group>"; };
@@ -282,6 +284,7 @@
 		B93FB9E5210EE5FE00DC1E4D /* EasyPR */ = {
 			isa = PBXGroup;
 			children = (
+				B9954D392148B2F200D1B2C7 /* province_mapping */,
 				B91239D22133E207001BD379 /* tensorflow */,
 				B98E4350212EB0CF0075791D /* train */,
 				B98A7B09212D6A1E007F5249 /* utils */,
@@ -338,7 +341,7 @@
 		B98A7B04212D340C007F5249 /* train */ = {
 			isa = PBXGroup;
 			children = (
-				B98A7B05212D34A3007F5249 /* ann_train.cpp */,
+				B98A7B05212D34A3007F5249 /* ann_train.mm */,
 				B98A7B06212D34A3007F5249 /* ann_train.hpp */,
 			);
 			path = train;
@@ -476,6 +479,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E42C9793211B2D1A00712339 /* LaunchScreen.storyboard in Resources */,
+				B9954D3A2148B2F300D1B2C7 /* province_mapping in Resources */,
 				B90FA277211C35500050DE42 /* car4.jpg in Resources */,
 				B90FA279211C35500050DE42 /* car5.jpg in Resources */,
 				B98E4351212EB0CF0075791D /* train in Resources */,
@@ -523,7 +527,7 @@
 				B91B3E172122D6300045484A /* helper.cpp in Sources */,
 				B91B3E182122D6300045484A /* mser2.cpp in Sources */,
 				B91239D52133E237001BD379 /* tfTest.cpp in Sources */,
-				B98A7B07212D34A3007F5249 /* ann_train.cpp in Sources */,
+				B98A7B07212D34A3007F5249 /* ann_train.mm in Sources */,
 				B91B3E162122D6300045484A /* lbp.cpp in Sources */,
 				B947E6E4211013D1007C8216 /* UIImageCVMatConverter.mm in Sources */,
 				B93FB9EB210EE5FE00DC1E4D /* ViewController.mm in Sources */,
@@ -548,7 +552,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B98E434F212EAE3B0075791D /* ann_train.cpp in Sources */,
+				B98E434F212EAE3B0075791D /* ann_train.mm in Sources */,
 				B93FBA00210EE5FF00DC1E4D /* EasyPRTests.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -12,7 +12,7 @@
 @interface ShowController ()<UITableViewDelegate,UITableViewDataSource>
 {
     UITableView *_showTB;
-    NSMutableArray<UIImage*> *_dataArr;
+    NSMutableArray *_dataArr;
 }
 @end
 
@@ -54,12 +54,15 @@
 - (void)loadImages:(NSMutableArray*)arr {
     [_dataArr removeAllObjects];
     for (UIImage *img in arr) {
-        if (img.size.width > self.view.bounds.size.width) {
-             [_dataArr addObject:[self scaleWithFixedWidth:self.view.bounds.size.width srcImage:img]];
-        }else {
+        if ([img isKindOfClass:[NSString class]]) {
             [_dataArr addObject:img];
+        } else {
+            if (img.size.width > self.view.bounds.size.width) {
+                [_dataArr addObject:[self scaleWithFixedWidth:self.view.bounds.size.width srcImage:img]];
+            }else {
+                [_dataArr addObject:img];
+            }
         }
-       
     }
     [_showTB reloadData];
 }
@@ -72,14 +75,23 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reUseCell];
     UIImage *image = _dataArr[indexPath.row];
-//    cell.contentMode = UIViewContentModeCenter;
-    cell.contentView.layer.contentsGravity = kCAGravityResizeAspect;
-    cell.contentView.layer.contents = (__bridge id _Nullable)(image.CGImage);;
+    cell.textLabel.text = @"";
+    cell.contentView.layer.contents = nil;
+    if ([image isKindOfClass:[NSString class]]) {
+        cell.textLabel.text = image;
+    } else {
+        cell.contentView.layer.contentsGravity = kCAGravityResizeAspect;
+        cell.contentView.layer.contents = (__bridge id _Nullable)(image.CGImage);
+    }
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     UIImage *image = _dataArr[indexPath.row];
-    return image.size.height + 1;
+    if ([image isKindOfClass:[NSString class]]) {
+        return 55;
+    } else {
+        return image.size.height + 1;
+    }
 }
 @end

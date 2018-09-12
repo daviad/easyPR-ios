@@ -6,11 +6,11 @@
 //  Copyright © 2018年  dingxiuwei. All rights reserved.
 //
 
-#include "ann_train.hpp"
-#include "config.h"
-#include "util.h"
-#include "core_func.h"
-#include "feature.hpp"
+#import "ann_train.hpp"
+#import "config.h"
+#import "util.h"
+#import "core_func.h"
+#import "feature.hpp"
 
 namespace easypr {
     AnnTrain::AnnTrain(const char* chars_folder, const char* xml)
@@ -18,7 +18,8 @@ namespace easypr {
         ann_ = cv::ml::ANN_MLP::create();
         type = 0;
         kv_ = std::shared_ptr<Kv>(new Kv);
-        kv_->load("/Users/dingxiuwei/Desktop/git/easyPR-ios/EasyPR-iOS-master/etc/province_mapping");
+//        NSBund
+//        kv_->load("/Users/dxw/Desktop/github/MLDemo/easyPR-ios/EasyPR-iOS-master/etc/province_mapping");
     }
     
     void AnnTrain::train(){

@@ -116,9 +116,11 @@ int imageCrop(InputArray src, OutputArray dst, cv::Rect rect)
     //    gray = channels[0];
     // 灰度转换
     cvtColor(srcImagge, gray, CV_RGB2GRAY);
+    [self.imgs addObject:@"灰度图"];
     [self.imgs addObject:[UIImageCVMatConverter UIImageFromCVMat:gray]];
     
     // 取反值灰度
+     [self.imgs addObject:@"反灰度图，增加对比对度"];
     gray_neg = 255 - gray;
     [self.imgs addObject:[UIImageCVMatConverter UIImageFromCVMat:gray_neg]];
     
@@ -162,15 +164,18 @@ int imageCrop(InputArray src, OutputArray dst, cv::Rect rect)
     cv::Mat mserResMat;
     // mser+与mser-位与操作
     mserResMat = mserMapMat & mserNegMapMat;
+    [self.imgs addObject:@"mser+"];
     [self.imgs addObject:[UIImageCVMatConverter UIImageFromCVMat:mserMapMat]];
+    [self.imgs addObject:@"mser-"];
     [self.imgs addObject:[UIImageCVMatConverter UIImageFromCVMat:mserNegMapMat]];
+    [self.imgs addObject:@"mser"];
     [self.imgs addObject:[UIImageCVMatConverter UIImageFromCVMat:mserResMat]];
     // 闭操作连接缝隙
     cv::Mat mserClosedMat;
     Mat element = getStructuringElement(MORPH_RECT, cv::Size(17,8));
     cv::morphologyEx(mserResMat, mserClosedMat,
                      cv::MORPH_CLOSE, element/*cv::Mat::ones(1, 20, CV_8UC1)*/);
-    
+    [self.imgs addObject:@"闭操作连接缝隙"];
     [self.imgs addObject:[UIImageCVMatConverter UIImageFromCVMat:mserClosedMat]];
     
     // 寻找外部轮廓
@@ -192,8 +197,9 @@ int imageCrop(InputArray src, OutputArray dst, cv::Rect rect)
     
     }
     drawContours(srcImagge, plate_contours, -1, Scalar(255, 0, 0));
+    [self.imgs addObject:@"画出所有的外轮廓"];
     [self.imgs addObject:[UIImageCVMatConverter UIImageFromCVMat:srcImagge]];
-    
+    [self.imgs addObject:@"选出符号标准的一些轮廓"];
     vector<Mat> plates;
     
     for (int i = 0; i < candidates.size(); ++i)
@@ -261,19 +267,23 @@ void getLBPFeatures(const Mat& image, Mat& features) {
     Mat grayPlate;
     cv::cvtColor(plate, grayPlate, CV_RGB2GRAY);
     cv::threshold(grayPlate, grayPlate, 0, 255, CV_THRESH_BINARY + CV_THRESH_OTSU);
+    [self.imgs addObject:@"Hog+SVM 选出车牌并二值化"];
     [self.imgs addObject:[UIImageCVMatConverter UIImageFromCVMat:grayPlate]];
     
     Mat roi = [self horizontalProjectionMat:grayPlate];
+    [self.imgs addObject:@"去掉上面的按钮并截取进一步的车牌"];
     [self.imgs addObject:[UIImageCVMatConverter UIImageFromCVMat:roi]];
-    
+    [self.imgs addObject:@"去掉中间的按钮"];
     roi = [self clearNoisePoint:roi];
     cv::resize(roi, roi, cv::Size(136,(136.8*28.0)/141.0));
 //    垂直投影
     vector<Mat> roiList = [self verticalProjectionMat:roi];
+    [self.imgs addObject:@"垂直投影截取字符"];
     for (int i = 0;i < roiList.size();i++) {
         Mat c = roiList[i];
         [self.imgs addObject:[UIImageCVMatConverter UIImageFromCVMat:c]];
     }
+    [self.imgs addObject:@"归一化"];
     vector<Mat> normalizeList;
     for (int i = 0;i < roiList.size();i++) {
         Mat c = roiList[i];
@@ -343,6 +353,7 @@ void getLBPFeatures(const Mat& image, Mat& features) {
         }
     }
     Mat tmp = horizontalProjectionMat;
+    [self.imgs addObject:@"水平投影直方图"];
     [self.imgs addObject:[UIImageCVMatConverter UIImageFromCVMat:tmp]];
 
     vector<Mat> roiList;//用于储存分割出来的每个字符
@@ -398,6 +409,7 @@ void getLBPFeatures(const Mat& image, Mat& features) {
             verticalProjectionMat.at<uchar>(height - 1 - j, i) = perPixelValue;
         }
     }
+    [self.imgs addObject:@"垂直投影直方图"];
     [self.imgs addObject:[UIImageCVMatConverter UIImageFromCVMat:verticalProjectionMat]];
     
     vector<Mat> roiList;//用于储存分割出来的每个字符
@@ -432,19 +444,25 @@ void getLBPFeatures(const Mat& image, Mat& features) {
 
 - (void)annCharRecongnise:(vector<Mat>)chars {
 
-//    NSString *nsstring=[[NSBundle mainBundle] pathForResource:@"model/ann" ofType:@"xml"];
-//    string path=[nsstring UTF8String];
-    easypr::AnnTrain train = easypr::AnnTrain("/Users/dingxiuwei/Desktop/git/easyPR-ios/EasyPR-iOS-master/resources/train/ann","/Users/dingxiuwei/Desktop/git/easyPR-ios/EasyPR-iOS-master/resources/train/ann1.xml");
-//     easypr::AnnTrain train = easypr::AnnTrain("/Users/dxw/Desktop/github/MLDemo/easyPR-ios/EasyPR-iOS-master/resources/train/ann","/Users/dxw/Desktop/github/MLDemo/easyPR-ios/EasyPR-iOS-master/resources/model/ann.xml");
-    
+    NSString *nsstring=[[NSBundle mainBundle] pathForResource:@"model/ann1" ofType:@"xml"];
+    const char* path=[nsstring UTF8String];
+    easypr::AnnTrain train = easypr::AnnTrain("resources/train/ann",path);
+    NSString *provice=[[NSBundle mainBundle] pathForResource:@"province_mapping" ofType:@""];
+    const char* proviceC=[provice UTF8String];
+    train.kv_->load(proviceC);
+    NSMutableString *licence = [NSMutableString string];
     for (int i = 0; i < chars.size(); i++) {
        auto img = chars[i];
         
 
        std::string ch = train.predict(img);
-        cout << ch << endl;
+        [licence appendString:[NSString stringWithCString:ch.c_str() encoding:NSUTF8StringEncoding]];
+//        cout << ch << endl;
     }
     
+    [self.imgs addObject:@"ann识别"];
+    [self.imgs addObject:licence];
+
 //    vector<Mat> cl;
 //    cl.push_back(cv::imread("/Users/dxw/Desktop/YUV/1.png",0));
 //    cl.push_back(cv::imread("/Users/dxw/Desktop/YUV/2.png",0));

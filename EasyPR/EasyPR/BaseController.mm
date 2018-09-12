@@ -39,6 +39,7 @@ using namespace std;
     //    resize(orginImg, resizedImg, cv::Size(self.view.frame.size.width,self.view.frame.size.width / ratiowh));
     Mat originRGB;
     cvtColor(resizedImg, originRGB, CV_BGR2RGB);
+    [self.imgs addObject:@"原图"];
     [self.imgs addObject:[UIImageCVMatConverter UIImageFromCVMat:originRGB]];
     [self handleImage:originRGB];
     [showCtr loadImages:self.imgs];
